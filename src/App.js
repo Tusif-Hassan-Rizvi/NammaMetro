@@ -10,15 +10,14 @@ import {
 
 function App() {
   return (
-    <Router>
-      
+    <Router basename="/NammaMetro">
 
       <Routes>
-        <Route exact path='/' element={<Selectroute/>}></Route>
+        <Route exact path='/' element={<Selectroute />}></Route>
         <Route path="/selectstation" element={<Selectstation />}></Route>
       </Routes>
 
-      </Router>
+    </Router>
 
   );
 }
