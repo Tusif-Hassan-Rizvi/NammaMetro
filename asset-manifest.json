@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/NammaMetro/static/css/main.230ab81c.css",
-    "main.js": "/NammaMetro/static/js/main.72ff93bd.js",
+    "main.js": "/NammaMetro/static/js/main.ce968170.js",
     "static/js/787.c473390b.chunk.js": "/NammaMetro/static/js/787.c473390b.chunk.js",
     "index.html": "/NammaMetro/index.html",
     "main.230ab81c.css.map": "/NammaMetro/static/css/main.230ab81c.css.map",
-    "main.72ff93bd.js.map": "/NammaMetro/static/js/main.72ff93bd.js.map",
+    "main.ce968170.js.map": "/NammaMetro/static/js/main.ce968170.js.map",
     "787.c473390b.chunk.js.map": "/NammaMetro/static/js/787.c473390b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.230ab81c.css",
-    "static/js/main.72ff93bd.js"
+    "static/js/main.ce968170.js"
   ]
 }
