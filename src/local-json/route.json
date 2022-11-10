@@ -1,0 +1,70 @@
+{
+  "route_info": [
+    {
+      "route_id": 1,
+      "route_name": "Purple",
+      "route_color": "#A020F0",
+      "stop_list": [
+        "BYPH",
+        "SVRD",
+        "IDN",
+        "HLRU",
+        "TTY",
+        "MAGR",
+        "CBPK",
+        "VDSA",
+        "VSWA",
+        "KGWA",
+        "SRCS",
+        "MIRD",
+        "HSLI",
+        "VJN",
+        "AGPP",
+        "DJNR",
+        "MYRD",
+        "NYH",
+        "RRR",
+        "BGU",
+        "PAT",
+        "MLS",
+        "KGI"
+      ]
+    },
+    {
+      "route_id": 2,
+      "route_name": "Green",
+      "route_color": "#00FF00",
+      "stop_list": [
+        "APTS",
+        "TGTP",
+        "VJRH",
+        "KLPK",
+        "APRC",
+        "PUTH",
+        "JPN",
+        "BSNK",
+        "RVR",
+        "JYN",
+        "SECE",
+        "LBGH",
+        "NLC",
+        "KRMT",
+        "CKPE",
+        "KGWA",
+        "SPGD",
+        "SPRU",
+        "KVPR",
+        "RJNR",
+        "MHLI",
+        "SSFY",
+        "YPM",
+        "YPI",
+        "PEYA",
+        "PYID",
+        "JLHL",
+        "DSH",
+        "NGSA"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+.inputfield{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 50vh;
+  align-items: center;
+}
+
+.frominput{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.toinput{
+  display: flex;
+  flex-direction: column;
+}
+
+.inputfield label{
+  margin-bottom: 5px;
+  font-weight: bolder;
+}
+.inputfield input{
+ width: 30vw;
+ padding: 10px 5px;
+ border-radius: 5px;
+ outline: none;
+ border: 2px solid orangered;
+ margin-bottom: 20px;
+
+}
+
+.btn{
+ background-color: green;
+ color: white;
+ border: none;
+ outline: none;
+ padding: 10px 100px;
+ border-radius: 5px;
+ font-weight: bold;
+ cursor: pointer;
+}
+
+.btn:hover{
+  color: rgb(243, 238, 238);
+}
+

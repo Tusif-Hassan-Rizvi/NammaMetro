@@ -1,0 +1,310 @@
+{
+  "stations": [
+    {
+      "stationID": "1",
+      "stationCode": "BYPH",
+      "englishName": "Baiyappanahalli",
+      "kannadaName": "ಬೈಯಪ್ಪನಹಳ್ಳಿ"
+    },
+    {
+      "stationID": "2",
+      "stationCode": "SVRD",
+      "englishName": "Swami Vivekananda Road",
+      "kannadaName": "ಸ್ವಾಮಿ ವಿವೇಕಾನಂದ ರಸ್ತೆ"
+    },
+    {
+      "stationID": "3",
+      "stationCode": "IDN",
+      "englishName": "Indiranagar",
+      "kannadaName": "ಇಂದಿರಾನಗರ"
+    },
+    {
+      "stationID": "4",
+      "stationCode": "HLRU",
+      "englishName": "Halasuru",
+      "kannadaName": "ಹಲಸೂರು"
+    },
+    {
+      "stationID": "5",
+      "stationCode": "TTY",
+      "englishName": "Trinity",
+      "kannadaName": "ಟ್ರಿನಿಟಿ"
+    },
+    {
+      "stationID": "6",
+      "stationCode": "MAGR",
+      "englishName": "Mahathma Gandhi Road",
+      "kannadaName": "ಮಹಾತ್ಮ ಗಾಂಧಿ ರಸ್ತೆ"
+    },
+    {
+      "stationID": "7",
+      "stationCode": "CBPK",
+      "englishName": "Cubbon Park",
+      "kannadaName": "ಕಬ್ಬನ್ ಉದ್ಯಾನ"
+    },
+    {
+      "stationID": "8",
+      "stationCode": "VDSA",
+      "englishName": "Dr. B. R. Ambedkar Stn.  Vidhana Soudha",
+      "kannadaName": "ಡಾ. ಬಿ. ಆರ್. ಅಂಬೇಡ್ಕರ ನಿಲ್ದಾಣ,  ವಿಧಾನ ಸೌಧ"
+    },
+    {
+      "stationID": "9",
+      "stationCode": "VSWA",
+      "englishName": "Sir M Visveswaraya Station  Central College",
+      "kannadaName": "ಸರ್ ಎಂ.ವಿಶ್ವೇಶ್ವರಯ್ಯ ನಿಲ್ದಾಣ ಸೆಂಟ್ರಲ್ ಕಾಲೇಜ್"
+    },
+    {
+      "stationID": "10",
+      "stationCode": "KGWA",
+      "englishName": "Nadaprabhu Kempegowda Station  Majestic",
+      "kannadaName": "ನಾಡಪ್ರಭು ಕೆಂಪೇಗೌಡ ಬಸ್ ನಿಲ್ದಾಣ ಮೆಜೆಸ್ಟಿಕ್"
+    },
+    {
+      "stationID": "11",
+      "stationCode": "SRCS",
+      "englishName": "Krantivira Sangolli Rayanna Railway Station",
+      "kannadaName": "ಕ್ರಾಂತಿವೀರ ಸಂಗೊಳ್ಳಿ ರಾಯಣ್ಣ ರೈಲು ನಿಲ್ದಾಣ"
+    },
+    {
+      "stationID": "12",
+      "stationCode": "MIRD",
+      "englishName": "Magadi Road",
+      "kannadaName": "ಮಾಗಡಿ ರಸ್ತೆ "
+    },
+    {
+      "stationID": "13",
+      "stationCode": "HSLI",
+      "englishName": "Sri Balagangadharanatha Swamiji Stn.  Hosahalli",
+      "kannadaName": "ಶ್ರೀ ಬಾಲಗಂಗಾಧರನಾಥ ಸ್ವಾಮೀಜಿ ನಿಲ್ದಾಣ  ಹೊಸಹಳ್ಳಿ"
+    },
+    {
+      "stationID": "14",
+      "stationCode": "VJN",
+      "englishName": "Vijayanagar",
+      "kannadaName": "ವಿಜಯನಗರ"
+    },
+    {
+      "stationID": "15",
+      "stationCode": "AGPP",
+      "englishName": "Attiguppe",
+      "kannadaName": "ಅತ್ತಿಗುಪ್ಪೆ"
+    },
+    {
+      "stationID": "16",
+      "stationCode": "DJNR",
+      "englishName": "Deepanjali Nagar",
+      "kannadaName": "ದೀಪಾಂಜಲಿ ನಗರ"
+    },
+    {
+      "stationID": "17",
+      "stationCode": "MYRD",
+      "englishName": "Mysore Road",
+      "kannadaName": "ಮೈಸೂರು ರಸ್ತೆ"
+    },
+    {
+      "stationID": "18",
+      "stationCode": "NYH",
+      "englishName": "Nayandahalli",
+      "kannadaName": "ನಾಯಂಡಹಳ್ಳಿ"
+    },
+    {
+      "stationID": "19",
+      "stationCode": "RRR",
+      "englishName": "Rajarajeshwari Nagar",
+      "kannadaName": "ರಾಜ ರಾಜೇಶ್ವರಿ ನಗರ"
+    },
+    {
+      "stationID": "20",
+      "stationCode": "BGU",
+      "englishName": "Jnanabharathi",
+      "kannadaName": "ಜ್ಞಾನ ಭಾರತಿ"
+    },
+    {
+      "stationID": "21",
+      "stationCode": "PAT",
+      "englishName": "Pattanagere",
+      "kannadaName": "ಪಟ್ಟಣಗೆರೆ"
+    },
+    {
+      "stationID": "22",
+      "stationCode": "MLS",
+      "englishName": "Kengeri Bus Terminal",
+      "kannadaName": "ಕೆಂಗೇರಿ ಬಸ್ ಟರ್ಮಿನಲ್"
+    },
+    {
+      "stationID": "23",
+      "stationCode": "KGI",
+      "englishName": "Kengeri",
+      "kannadaName": "ಕೆಂಗೇರಿ"
+    },
+    {
+      "stationID": "39",
+      "stationCode": "NGSA",
+      "englishName": "Nagasandra",
+      "kannadaName": "ನಾಗಸಂದ್ರ"
+    },
+    {
+      "stationID": "40",
+      "stationCode": "DSH",
+      "englishName": "Dasarahalli",
+      "kannadaName": "ದಾಸರಹಳ್ಳಿ"
+    },
+    {
+      "stationID": "41",
+      "stationCode": "JLHL",
+      "englishName": "Jalahalli",
+      "kannadaName": "ಜಾಲಹಳ್ಳಿ"
+    },
+    {
+      "stationID": "42",
+      "stationCode": "PYID",
+      "englishName": "Peenya Industry",
+      "kannadaName": "ಪೀಣ್ಯ ಕೈಗಾರಿಕಾ ಪ್ರದೇಶ"
+    },
+    {
+      "stationID": "43",
+      "stationCode": "PEYA",
+      "englishName": "Peenya",
+      "kannadaName": "ಪೀಣ್ಯ"
+    },
+    {
+      "stationID": "44",
+      "stationCode": "YPI",
+      "englishName": "Goraguntepalya",
+      "kannadaName": "ಗೋರಗುಂಟೆಪಾಳ್ಳ್ಯಾ"
+    },
+    {
+      "stationID": "45",
+      "stationCode": "YPM",
+      "englishName": "Yeshwantpur",
+      "kannadaName": "ಯಶವಂತಪುರ"
+    },
+    {
+      "stationID": "46",
+      "stationCode": "SSFY",
+      "englishName": "Sandal Soap Factory",
+      "kannadaName": "ಸ್ಯಾಂಡಲ್ ಸೋಪ್ ಫ್ಯಾಕ್ಟರಿ"
+    },
+    {
+      "stationID": "47",
+      "stationCode": "MHLI",
+      "englishName": "Mahalakshmi",
+      "kannadaName": "ಮಹಾಲಕ್ಷ್ಮಿಪುರಂ"
+    },
+    {
+      "stationID": "48",
+      "stationCode": "RJNR",
+      "englishName": "Rajajinagar",
+      "kannadaName": "ರಾಜಾಜಿನಗರ"
+    },
+    {
+      "stationID": "49",
+      "stationCode": "KVPR",
+      "englishName": "Mahakavi Kuvempu road ",
+      "kannadaName": "ಮಹಾಕವಿ ಕುವೆಂಪು ರಸ್ತೆ"
+    },
+    {
+      "stationID": "50",
+      "stationCode": "SPRU",
+      "englishName": "Srirampura",
+      "kannadaName": "ಶ್ರೀರಾಂಪುರ"
+    },
+    {
+      "stationID": "51",
+      "stationCode": "SPGD",
+      "englishName": "Mantri Square Sampige Road",
+      "kannadaName": "ಮಂತ್ರಿ ಸ್ಕ್ವೇರ್ ಸಂಪಿಗೆ ರಸ್ತೆ"
+    },
+    {
+      "stationID": "53",
+      "stationCode": "CKPE",
+      "englishName": "Chickpete",
+      "kannadaName": "ಚಿಕ್ಕಪೇಟೆ"
+    },
+    {
+      "stationID": "54",
+      "stationCode": "KRMT",
+      "englishName": "Krishna Rajendra Market",
+      "kannadaName": "ಕೃಷ್ಣರಾಜೇಂದ್ರ ಮಾರುಕಟ್ಟೆ"
+    },
+    {
+      "stationID": "55",
+      "stationCode": "NLC",
+      "englishName": "National College",
+      "kannadaName": "ನ್ಯಾಷನಲ್ ಕಾಲೇಜ್ ರಸ್ತೆ"
+    },
+    {
+      "stationID": "56",
+      "stationCode": "LBGH",
+      "englishName": "Lalbagh",
+      "kannadaName": "ಲಾಲ್‍ಬಾಗ್"
+    },
+    {
+      "stationID": "57",
+      "stationCode": "SECE",
+      "englishName": "South End Circle",
+      "kannadaName": "ಸೌತ್ ಎಂಡ್ ಸರ್ಕಲ್"
+    },
+    {
+      "stationID": "58",
+      "stationCode": "JYN",
+      "englishName": "Jayanagar",
+      "kannadaName": "ಜಯನಗರ"
+    },
+    {
+      "stationID": "59",
+      "stationCode": "RVR",
+      "englishName": "Rashtreeya Vidyalaya Road",
+      "kannadaName": "ರಾಷ್ಟ್ರೀಯ ವಿದ್ಯಾಲಯ ರಸ್ತೆ"
+    },
+    {
+      "stationID": "60",
+      "stationCode": "BSNK",
+      "englishName": "Banashankari",
+      "kannadaName": "ಬನಶಂಕರಿ"
+    },
+    {
+      "stationID": "61",
+      "stationCode": "JPN",
+      "englishName": "Jaya Prakash Nagar",
+      "kannadaName": "ಜಯಪ್ರಕಾಶ್ ನಗರ"
+    },
+    {
+      "stationID": "62",
+      "stationCode": "PUTH",
+      "englishName": "Yelachenahalli",
+      "kannadaName": "ಯಲಚೇನಹಳ್ಳಿ"
+    },
+    {
+      "stationID": "63",
+      "stationCode": "APRC",
+      "englishName": "Konanakunte Cross",
+      "kannadaName": "ಕೋಣನಕುಂಟೆ ಕ್ರಾಸ್"
+    },
+    {
+      "stationID": "64",
+      "stationCode": "KLPK",
+      "englishName": "Doddakallasandra",
+      "kannadaName": "ದೊಡ್ಡಕಲ್ಲಸಂದ್ರ"
+    },
+    {
+      "stationID": "65",
+      "stationCode": "VJRH",
+      "englishName": "Vajarahalli",
+      "kannadaName": "ವಾಜರಹಳ್ಳಿ"
+    },
+    {
+      "stationID": "66",
+      "stationCode": "TGTP",
+      "englishName": "Thalaghattapura",
+      "kannadaName": "ತಲಘಟ್ಟಪುರ"
+    },
+    {
+      "stationID": "67",
+      "stationCode": "APTS",
+      "englishName": "Silk Institute",
+      "kannadaName": "ರೇಷ್ಮೆ ಸಂಸ್ಥೆ"
+    }
+  ]
+}
