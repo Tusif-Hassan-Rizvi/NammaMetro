@@ -1,22 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Stations from '../local-json/station.json'
 import Routes from '../local-json/route.json'
-// import Selectroutes from '../components/Selectroutes'
 
 
-export default function Selectstaion() {
+export default function Selectstaion(props) {
     const station = Stations.stations;
     const route = Routes.route_info;
     const [from, setFrom] = useState("");
     const [to, setTo] = useState("");
-    const [inputstyle, setInputstyle]=useState({display:"none"})
+    const [inputstyle, setInputstyle] = useState({ display: "none" })
+    const data={"from":from, "to":to}
+    useEffect(() => {
+        props.stationinfo(data);
+      }, [to]);
 
-    if(from && to!==""){
+    if (from && to !== "") {
         setTimeout(() => {
-            
+
             window.history.go(-1)
         }, 200);
     }
+
+
+
     return (
         <>
             <section id='inputbox-section'>
@@ -31,12 +37,12 @@ export default function Selectstaion() {
                 return <ul className='station-name' key={index}>
                     <li onClick={() => {
                         setFrom(val.englishName)
-                        setInputstyle({display:"block"})
-                        if(from!==""){
+                        setInputstyle({ display: "block" })
+                        if (from !== "") {
                             setFrom(from)
                             setTo(val.englishName)
                         }
-
+                       
                     }}>{val.englishName}   {val.kannadaName}</li>
                 </ul>
             })}

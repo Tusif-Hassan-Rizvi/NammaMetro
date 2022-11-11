@@ -1,7 +1,7 @@
-.station-name {
-  /* color: blue; */
-  /* margin: 1rem; */
-}
+/* .station-name {
+  color: blue;
+  margin: 1rem;
+} */
 
 .station-name li {
   margin: 2rem;
@@ -41,4 +41,11 @@
 .infobox span {
   color: rgb(155, 155, 155);
   font-weight: 600;
+}
+
+
+@media only screen and (max-width: 500px) {
+  .input-station{
+    width: 80vw;
+  }
 }
