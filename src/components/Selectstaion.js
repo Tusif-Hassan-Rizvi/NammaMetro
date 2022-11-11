@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Stations from '../local-json/station.json'
 import Routes from '../local-json/route.json'
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Selectstaion(props) {
@@ -9,6 +10,7 @@ export default function Selectstaion(props) {
     const [from, setFrom] = useState("");
     const [to, setTo] = useState("");
     const [inputstyle, setInputstyle] = useState({ display: "none" })
+    const navigate = useNavigate();
     const data={"from":from, "to":to}
     useEffect(() => {
         props.stationinfo(data);
@@ -17,7 +19,7 @@ export default function Selectstaion(props) {
     if (from && to !== "") {
         setTimeout(() => {
 
-            window.history.go(-1)
+            navigate('/')
         }, 200);
     }
 
