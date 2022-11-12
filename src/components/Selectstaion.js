@@ -25,7 +25,9 @@ export default function Selectstaion(props) {
         }, 200);
     }
 
-    // console.log(from,  fromstationcode, to, tostationcode)
+    if(from===to){
+        console.log("Yeh! both are same");  
+    }
 
     return (
         <>
@@ -36,13 +38,29 @@ export default function Selectstaion(props) {
                     placeholder='Enter To Station' />
             </section>
 
-                <div className='infobox'><span>AVAILABLE STATIONS</span></div>
+            <div className='infobox'><span>AVAILABLE STATIONS</span></div>
             {/* output area  */}
             <section className='station-list-box'>
                 {station.map((val, index) => {
-
                     return <ul className='station-name' key={index}>
-                        <li onClick={() => {
+                       {route[0].stop_list.includes(val.stationCode)? <li
+                            onClick={() => {
+                                setFrom(val.englishName)
+                                setInputstyle({ display: "block" })
+                                setFromstationcode(val.stationCode)
+                                if (from !== "") {
+                                    setFrom(from)
+                                    setTo(val.englishName)
+
+                                    setFromstationcode(fromstationcode)
+                                    setTostationcode(val.stationCode)
+                                }
+
+                            }}
+                            id={val.stationCode}
+                            style={{color:"#A020F0"}}
+                        ><span style={{color:"black"}}>{val.englishName}   {val.kannadaName}</span></li>:<li
+                        onClick={() => {
                             setFrom(val.englishName)
                             setInputstyle({ display: "block" })
                             setFromstationcode(val.stationCode)
@@ -55,8 +73,9 @@ export default function Selectstaion(props) {
                             }
 
                         }}
-                            id={val.stationCode}
-                        >{val.englishName}   {val.kannadaName}</li>
+                        id={val.stationCode}
+                        style={{color:"#00FF00"}}
+                    ><span style={{color:"black"}}>{val.englishName}   {val.kannadaName}</span></li>}
                     </ul>
                 })}
             </section>
