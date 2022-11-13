@@ -30,7 +30,7 @@ export default function Selectstaion(props) {
     const handleClick = (event, key) => {
         event.target.style.color = 'gray';
         event.target.style['pointer-events'] = 'none';
-        event.target.style.cursor= 'default';
+        event.target.style.cursor='default'
         // console.log(event.target);
         // console.log('key index: ', key);
     };
@@ -46,7 +46,7 @@ export default function Selectstaion(props) {
 
             <div className='infobox'>
                 <span>AVAILABLE STATIONS</span>
-                <label style={{marginLeft:"5rem", marginRight:"2px"}} for="sort">Order By</label><select id='sort' >
+                <label style={{marginLeft:"5rem", marginRight:"2px"}} htmlFor="sort">Order By</label><select id='sort' >
                     <option value="OrderByRoute">Route</option>
                     <option value="OrderByAlphabet">Alphabet</option>
                 </select>

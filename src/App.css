@@ -54,6 +54,22 @@
   color: rgb(243, 238, 238);
 }
 
+.swapbutton{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: green;
+  width: 35px ;
+  height: 35px;
+  border-radius: 50%;
+  
+}
+.swapbutton img{
+  width: 25px;
+  -webkit-filter : hue-rotate(180deg);
+    filter : hue-rotate(180deg);
+}
+
 
 .output-secton{
   display: flex;

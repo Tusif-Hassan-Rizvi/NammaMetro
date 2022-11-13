@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../namma.png'
+import swap from '../updown.png'
 import fare from '../local-json/fare_list.json'
 import station from '../local-json/station.json'
 
@@ -20,6 +21,11 @@ export default function SelectRoutes(props) {
     setTicketstyle({"display":"block"})
   }
 
+  function SwapInputs(){
+    setFromstation(tostation);
+    setTostation(fromstation)
+  }
+
   return (
     <>
       <div className="inputfield">
@@ -28,6 +34,7 @@ export default function SelectRoutes(props) {
           <label htmlFor="from">From Station</label>
           <Link to="/selectstation"><input type="text" id='from' value={fromstation} onChange={(e) => setFromstation(e.target.value)} placeholder='Enter From Station' /></Link>
         </div>
+       <span className='swapbutton' onClick={SwapInputs}><img  src={swap}  alt="swap"/></span>
         {/* to */}
         <div className='toinput'>
           <label htmlFor="to">To Station</label>
