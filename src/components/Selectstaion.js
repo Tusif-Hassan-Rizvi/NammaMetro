@@ -12,6 +12,7 @@ export default function Selectstaion(props) {
     const [fromstationcode, setFromstationcode] = useState("");
     const [tostationcode, setTostationcode] = useState("");
     const [inputstyle, setInputstyle] = useState({ display: "none" })
+    const [color, setColor] = useState("black");
     const navigate = useNavigate();
     const data = { "from": from, "to": to, "fromstationcode": fromstationcode, "tostationcode": tostationcode };
     useEffect(() => {
@@ -25,9 +26,14 @@ export default function Selectstaion(props) {
         }, 200);
     }
 
-    if(from===to){
-        console.log("Yeh! both are same");  
-    }
+
+    const handleClick = (event, key) => {
+        event.target.style.color = 'gray';
+        event.target.style['pointer-events'] = 'none';
+        event.target.style.cursor= 'default';
+        // console.log(event.target);
+        // console.log('key index: ', key);
+    };
 
     return (
         <>
@@ -38,13 +44,22 @@ export default function Selectstaion(props) {
                     placeholder='Enter To Station' />
             </section>
 
-            <div className='infobox'><span>AVAILABLE STATIONS</span></div>
+            <div className='infobox'>
+                <span>AVAILABLE STATIONS</span>
+                <label style={{marginLeft:"5rem", marginRight:"2px"}} for="sort">Order By</label><select id='sort' >
+                    <option value="OrderByRoute">Route</option>
+                    <option value="OrderByAlphabet">Alphabet</option>
+                </select>
+            </div>
             {/* output area  */}
             <section className='station-list-box'>
-                {station.map((val, index) => {
-                    return <ul className='station-name' key={index}>
-                       {route[0].stop_list.includes(val.stationCode)? <li
-                            onClick={() => {
+                {(station.map((val, index) => {
+                    return <ul className='station-name' key={index} >
+                        {route[0].stop_list.includes(val.stationCode) ? <li
+
+                            style={{ color: "#A020F0" }}
+                        ><span
+                            onClick={(e) => {
                                 setFrom(val.englishName)
                                 setInputstyle({ display: "block" })
                                 setFromstationcode(val.stationCode)
@@ -55,29 +70,32 @@ export default function Selectstaion(props) {
                                     setFromstationcode(fromstationcode)
                                     setTostationcode(val.stationCode)
                                 }
+                                handleClick(e, index)
 
                             }}
                             id={val.stationCode}
-                            style={{color:"#A020F0"}}
-                        ><span style={{color:"black"}}>{val.englishName}   {val.kannadaName}</span></li>:<li
-                        onClick={() => {
-                            setFrom(val.englishName)
-                            setInputstyle({ display: "block" })
-                            setFromstationcode(val.stationCode)
-                            if (from !== "") {
-                                setFrom(from)
-                                setTo(val.englishName)
+                            style={{ color: color }}>{val.englishName}   {val.kannadaName}</span></li> : <li
 
-                                setFromstationcode(fromstationcode)
-                                setTostationcode(val.stationCode)
-                            }
+                                style={{ color: "#00FF00" }}
+                            ><span
+                                onClick={(e) => {
+                                    setFrom(val.englishName)
+                                    setInputstyle({ display: "block" })
+                                    setFromstationcode(val.stationCode)
+                                    if (from !== "") {
+                                        setFrom(from)
+                                        setTo(val.englishName)
 
-                        }}
-                        id={val.stationCode}
-                        style={{color:"#00FF00"}}
-                    ><span style={{color:"black"}}>{val.englishName}   {val.kannadaName}</span></li>}
+                                        setFromstationcode(fromstationcode)
+                                        setTostationcode(val.stationCode)
+                                    }
+                                    handleClick(e, index)
+                                }}
+                                id={val.stationCode}
+                                style={{ color: color }}>{val.englishName}   {val.kannadaName}</span></li>}
                     </ul>
-                })}
+                }))}
+
             </section>
         </>
     )

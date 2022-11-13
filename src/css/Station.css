@@ -14,10 +14,6 @@
   padding: 0 10px;
 }
 
-.station-name li:active {
-  background-color: rgb(227, 227, 227);
-}
-
 .station-name li:hover {
   color: rgba(0, 0, 0, 0.803);
 }
