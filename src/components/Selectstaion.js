@@ -13,20 +13,22 @@ export default function Selectstaion(props) {
     const [tostationcode, setTostationcode] = useState("");
     const [inputstyle, setInputstyle] = useState({ display: "none" })
     const [color, setColor] = useState("black");
+    const [targetvalue, setTargetvalue]=useState("");
     const navigate = useNavigate();
     const data = { "from": from, "to": to, "fromstationcode": fromstationcode, "tostationcode": tostationcode };
     useEffect(() => {
         props.stationinfo(data);
+      
     }, [to]);
-
+    
     if (from && to !== "") {
         setTimeout(() => {
-
+            
             navigate('/')
         }, 200);
     }
-
-
+    
+    
     const handleClick = (event, key) => {
         event.target.style.color = 'gray';
         event.target.style['pointer-events'] = 'none';
@@ -34,14 +36,16 @@ export default function Selectstaion(props) {
         // console.log(event.target);
         // console.log('key index: ', key);
     };
+    
+   
 
     return (
         <>
             {/* input area  */}
             <section id='inputbox-section'>
-                <input type="text" className='input-station' id="fromstation" onChange={(e) => setFrom(e.target.value)} value={from} placeholder='Enter From Station' /><br />
+                <input type="text" className='input-station' id="fromstation" onChange={(e) => setFrom(e.target.value)} value={from} placeholder='Enter From Station' onInput={(e)=>setTargetvalue(e.target.value)}/><br />
                 <input type="text" style={inputstyle} className='input-station' id='tostation' onChange={(e) => setTo(e.target.value)} value={to}
-                    placeholder='Enter To Station' />
+                    placeholder='Enter To Station'onInput={(e)=>setTargetvalue(e.target.value)} />
             </section>
 
             <div className='infobox'>
@@ -52,9 +56,9 @@ export default function Selectstaion(props) {
                 </select>
             </div>
             {/* output area  */}
-            <section className='station-list-box'>
+            <section className='station-list-box' id="showinfo">
                 {(station.map((val, index) => {
-                    return <ul className='station-name' key={index} >
+                    return <ul className='station-name' key={index}  >
                         {route[0].stop_list.includes(val.stationCode) ? <li
 
                             style={{ color: "#A020F0" }}
