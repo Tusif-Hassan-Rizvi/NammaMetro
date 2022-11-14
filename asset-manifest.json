@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.css": "/NammaMetro/static/css/main.559edab6.css",
-    "main.js": "/NammaMetro/static/js/main.6759d538.js",
+    "main.css": "/NammaMetro/static/css/main.ee0b6a33.css",
+    "main.js": "/NammaMetro/static/js/main.c08f4a18.js",
     "static/js/787.c473390b.chunk.js": "/NammaMetro/static/js/787.c473390b.chunk.js",
     "static/media/namma.png": "/NammaMetro/static/media/namma.e47779939fb8ddb16ec5.png",
-    "static/media/updown.png": "/NammaMetro/static/media/updown.81a4dad7971c94a18e01.png",
+    "static/media/updown.png": "/NammaMetro/static/media/updown.9fb6c935798ca89416f3.png",
+    "static/media/blackarrow.png": "/NammaMetro/static/media/blackarrow.81a4dad7971c94a18e01.png",
     "index.html": "/NammaMetro/index.html",
-    "main.559edab6.css.map": "/NammaMetro/static/css/main.559edab6.css.map",
-    "main.6759d538.js.map": "/NammaMetro/static/js/main.6759d538.js.map",
+    "main.ee0b6a33.css.map": "/NammaMetro/static/css/main.ee0b6a33.css.map",
+    "main.c08f4a18.js.map": "/NammaMetro/static/js/main.c08f4a18.js.map",
     "787.c473390b.chunk.js.map": "/NammaMetro/static/js/787.c473390b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.559edab6.css",
-    "static/js/main.6759d538.js"
+    "static/css/main.ee0b6a33.css",
+    "static/js/main.c08f4a18.js"
   ]
 }
