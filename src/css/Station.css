@@ -1,13 +1,3 @@
-/* .station-list-box {
- width: 100vw;
-
- display: flex;
- align-items: center;
- justify-content: center;
- flex-direction: column;
-
-} */
-
 .station-name li {
   margin: 2rem 30rem;
   padding: 0 10px;
@@ -35,12 +25,16 @@
   top: 0;
   z-index: 55;
   background-color: white;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.13);
+  /* box-shadow: 0 0 8px rgba(0, 0, 0, 0.13); */
+}
+
+.station-list-box{
+  margin-left: 60px;
 }
 
 .infobox {
-  margin-left: 29rem;
   margin-top: 10px;
+  margin-right: 100px;
 }
 
 .infobox span {
@@ -59,6 +53,11 @@
 
   .infobox {
     margin-left: 1rem;
+    margin-right: 0px;
+  }
+
+  .station-list-box{
+    margin-left: 0;
   }
 
 

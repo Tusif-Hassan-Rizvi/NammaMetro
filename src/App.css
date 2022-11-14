@@ -92,8 +92,6 @@
 }
 
 .staion-name span{
-  display: flex;
-  flex-wrap: wrap;
   font-weight: bold;
   font-size: 14px;
 }
