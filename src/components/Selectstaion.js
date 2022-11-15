@@ -37,13 +37,8 @@ export default function Selectstaion(props) {
     }
 
     stationSortArray.sort();
-  
-    // stationSortArray.map((val,index)=>{
-    //     console.log(val[0])
-    //     console.log(val[1])
-    //     console.log(val[2])
-    // })
    
+    
 
 
     const handleClick = (event, key) => {
