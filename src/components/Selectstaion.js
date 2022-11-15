@@ -16,7 +16,7 @@ export default function Selectstaion(props) {
     const [targetvalue, setTargetvalue] = useState("");
     const stationSortArray = [];
     let routecolor = "";
-    let Alphabetcolor="";
+    let Alphabetcolor = "";
     const navigate = useNavigate();
     const data = { "from": from, "to": to, "fromstationcode": fromstationcode, "tostationcode": tostationcode };
     useEffect(() => {
@@ -32,14 +32,11 @@ export default function Selectstaion(props) {
     }
 
     for (let key in station) {
-        stationSortArray.push([station[key]["englishName"],station[key]["kannadaName"],station[key]["stationCode"]])
-        
+        stationSortArray.push([station[key]["englishName"], station[key]["kannadaName"], station[key]["stationCode"]])
+
     }
 
     stationSortArray.sort();
-   
-    
-
 
     const handleClick = (event, key) => {
         event.target.style.color = 'gray';
@@ -47,11 +44,11 @@ export default function Selectstaion(props) {
         event.target.style.cursor = 'default'
         // console.log(event.target);
         // console.log('key index: ', key);
-        
+
     };
 
     return (
-        sortoperation==="OrderByRoute"?(
+
         <>
             {/* input area  */}
             <section id='inputbox-section'>
@@ -61,7 +58,10 @@ export default function Selectstaion(props) {
                 <div className='infobox'>
                     <span>AVAILABLE STATIONS</span>
                     <label style={{ marginLeft: "3rem", marginRight: "2px" }} htmlFor="sort">Order By</label>
-                    <select id='sort' onChange={(e) => setSortoperation(e.target.value)}>
+                    <select 
+                    id='sort' 
+                    onChange={(e) => setSortoperation(e.target.value)}
+                    >
                         <option value="OrderByRoute">Route</option>
                         <option value="OrderByAlphabet">Alphabet</option>
                     </select>
@@ -69,88 +69,75 @@ export default function Selectstaion(props) {
             </section>
 
             {/* output area  */}
-            <section className='station-list-box' id="showinfo">
+            {sortoperation === "OrderByRoute" ?
+                <section className='station-list-box' id="showinfo">
 
-                {(station.map((val, index) => {
-                    {route[0].stop_list.includes(val.stationCode)?routecolor="#A020F0":routecolor = "#00FF00"}
-                    
-                    return <ul className='station-name' key={index}  >
-                        <li
+                    {(station.map((val, index) => {
+                        { route[0].stop_list.includes(val.stationCode) ? routecolor = "#A020F0" : routecolor = "#00FF00" }
 
-                            style={{ color:routecolor}}
-                        ><span
-                            onClick={(e) => {
-                                setFrom(val.englishName)
-                                setInputstyle({ display: "block" })
-                                setFromstationcode(val.stationCode)
-                                if (from !== "") {
-                                    setFrom(from)
-                                    setTo(val.englishName)
+                        return <ul className='station-name' key={index}  >
+                            <li
 
-                                    setFromstationcode(fromstationcode)
-                                    setTostationcode(val.stationCode)
-                                }
-                                handleClick(e, index)
+                                style={{ color: routecolor }}
+                            ><span
+                                onClick={(e) => {
+                                    setFrom(val.englishName)
+                                    setInputstyle({ display: "block" })
+                                    setFromstationcode(val.stationCode)
+                                    if (from !== "") {
+                                        setFrom(from)
+                                        setTo(val.englishName)
 
-                            }}
-                            id={val.stationCode}
-                            style={{ color: "black" }}>{val.englishName + " " + val.kannadaName 
-                           }
-                            </span></li>
-                    </ul>
-                }))}
+                                        setFromstationcode(fromstationcode)
+                                        setTostationcode(val.stationCode)
+                                    }
+                                    handleClick(e, index)
 
-            </section></>):(<>
-            {/* input area  */}
-            <section id='inputbox-section'>
-                <input type="text" className='input-station' id="fromstation" onChange={(e) => setFrom(e.target.value)} value={from} placeholder='Enter From Station' onInput={(e) => setTargetvalue(e.target.value)} /><br />
-                <input type="text" style={inputstyle} className='input-station' id='tostation' onChange={(e) => setTo(e.target.value)} value={to}
-                    placeholder='Enter To Station' onInput={(e) => setTargetvalue(e.target.value)} />
-                <div className='infobox'>
-                    <span>AVAILABLE STATIONS</span>
-                    <label style={{ marginLeft: "3rem", marginRight: "2px" }} htmlFor="sort">Order By</label>
-                    <select id='sort' onChange={(e) => setSortoperation(e.target.value)}>
-                        <option value="OrderByRoute">Route</option>
-                        <option value="OrderByAlphabet">Alphabet</option>
-                    </select>
-                </div>
-            </section>
+                                }}
 
-            {/* output area  */}
-            <section className='station-list-box' id="showinfo">
+                                id={val.stationCode}
+                                style={{ color: "black" }}>{val.englishName + " " + val.kannadaName
+                                    }
+                                </span></li>
+                        </ul>
+                    }))}
 
-                {(stationSortArray.map((val, index) => {
-                    {route[0].stop_list.includes(val[2])?Alphabetcolor="#A020F0":Alphabetcolor = "#00FF00"}
-                    
-                    return <ul className='station-name' key={index}  >
-                        <li
+                </section> :
+                <section className='station-list-box' id="showinfo">
 
-                            style={{ color: Alphabetcolor }}
-                        ><span
-                            onClick={(e) => {
-                                setFrom(val[0])
-                                setInputstyle({ display: "block" })
-                                setFromstationcode(val[2])
-                                if (from !== "") {
-                                    setFrom(from)
-                                    setTo(val[0])
+                    {(stationSortArray.map((val, index) => {
+                        { route[0].stop_list.includes(val[2]) ? Alphabetcolor = "#A020F0" : Alphabetcolor = "#00FF00" }
 
-                                    setFromstationcode(fromstationcode)
-                                    setTostationcode(val[2])
-                                }
-                                handleClick(e, index)
+                        return <ul className='station-name' key={index}  >
+                            <li
 
-                            }}
-                            id={val[2]}
-                            style={{ color: "black" }}>{val[0]
-                           } {val[1]}
-                            </span></li>
-                    </ul>
-                }))}
+                                style={{ color: Alphabetcolor }}
+                            ><span
+                                onClick={(e) => {
+                                    setFrom(val[0])
+                                    setInputstyle({ display: "block" })
+                                    setFromstationcode(val[2])
+                                    if (from !== "") {
+                                        setFrom(from)
+                                        setTo(val[0])
 
-            </section></>)
+                                        setFromstationcode(fromstationcode)
+                                        setTostationcode(val[2])
+                                    }
+                                    handleClick(e, index)
 
-            
-        
+
+                                }}
+                                id={val[2]}
+                                style={{ color: "black" }}>{val[0]
+                                    } {val[1]}
+                                </span></li>
+                        </ul>
+                    }))}
+
+                </section>
+            }
+        </>
+
     )
 }
