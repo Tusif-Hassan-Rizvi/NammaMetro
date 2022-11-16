@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import Stations from '../local-json/station.json'
 import Routes from '../local-json/route.json'
 import { useNavigate } from 'react-router-dom';
+import sortpng from '../sort.svg'
 
 
 
@@ -17,31 +18,31 @@ export default function Selectstaion(props) {
     const [sortoperation, setSortoperation] = useState("OrderByRoute")
     const [targetvalue, setTargetvalue] = useState("");
     const [clickid, setClickid] = useState("")
+    const [language, setLanguage] = useState(localStorage.getItem('prefrence'));
     const stationSortArray = [];
     let routecolor = "";
     let Alphabetcolor = "";
     const navigate = useNavigate();
-    const data = { "from": from, "to": to, "fromstationcode": fromstationcode, "tostationcode": tostationcode };
+    const data = { "from": from, "to": to, "fromstationcode": fromstationcode, "tostationcode": tostationcode};
     useEffect(() => {
         props.stationinfo(data);
 
         if (from && to !== "") {
-            if(from===to){
+            if (from === to) {
                 alert("both stations should be not the same! click on another station name")
                 setTo("")
-              }
-              else{
-    
-              
-            setTimeout(() => {
-    
-                navigate('/')
-            }, 200);
-        }
+            }
+            else {
+
+
+                setTimeout(() => {
+
+                    navigate('/')
+                }, 200);
+            }
         }
     }, [to]);
 
-    
 
 
     for (let key in station) {
@@ -58,24 +59,52 @@ export default function Selectstaion(props) {
         event.target.style.cursor = 'default';
         setClickid(event.target.id)
         // console.log("Hello tusif")
-    };
-    
- 
-  
+    };   
+    localStorage.setItem("prefrence", language);
+    const prefrence = localStorage.getItem('prefrence');
 
     return (
 
         <>
+
             {/* input area  */}
             <section id='inputbox-section'>
+                <section id='language-section'>
+                    <div className='english-box'>
+                        <input
+                            type="radio"
+                            value="english"
+                            id='english'
+                            name='language'
+                            onClick={() => setLanguage("english")}
+                            onChange={(e) => e.target.value}
+                        />
+                        <label htmlFor="english">English</label>
+                    </div>
+
+                    <div className="kannada-box">
+                        <input
+                            type="radio"
+                            value="kannada"
+                            id='kannada'
+                            name='language'
+                            onClick={() => setLanguage("kannada")}
+                            onChange={(e) => e.target.value}
+                        />
+                        <label htmlFor="kannada">ಕನ್ನಡ</label>
+
+                    </div>
+
+                </section>
                 <input type="text" className='input-station' id="fromstation" onChange={(e) => setFrom(e.target.value)} value={from} placeholder='Enter From Station' onInput={(e) => setTargetvalue(e.target.value)} /><br />
                 <input type="text" style={inputstyle} className='input-station' id='tostation' onChange={(e) => setTo(e.target.value)} value={to}
                     placeholder='Enter To Station' onInput={(e) => setTargetvalue(e.target.value)} />
                 <div className='infobox'>
-                    <span>AVAILABLE STATIONS</span>
-                    <label style={{ marginLeft: "3rem", marginRight: "2px" }} htmlFor="sort">Order By</label>
+                    <span >AVAILABLE STATIONS</span>
+                    <label className='selectlabel' htmlFor="sort"> <img src={sortpng} alt="sortpng" /> Order By</label>
                     <select
                         id='sort'
+                        className='select'
                         onChange={(e) => setSortoperation(e.target.value)}
                     >
                         <option value="OrderByRoute">Route</option>
@@ -96,7 +125,7 @@ export default function Selectstaion(props) {
 
                                 style={{ color: routecolor }}
                             ><span
-                            className='StaionsNames'
+                                className='StaionsNames'
                                 onClick={(e) => {
                                     setFrom(val.englishName)
                                     setInputstyle({ display: "block" })
@@ -112,8 +141,8 @@ export default function Selectstaion(props) {
 
                                 }}
 
-                                id={val.stationCode}
-                                style={{ color: "black" }}>{val.englishName}
+                                id={val.stationCode}>
+                                    {prefrence === "english" ? val.englishName : val.kannadaName}
                                 </span></li>
                         </ul>
                     }))}
@@ -129,7 +158,7 @@ export default function Selectstaion(props) {
 
                                 style={{ color: Alphabetcolor }}
                             ><span
-                            className='StaionsNames'
+                                className='StaionsNames'
                                 onClick={(e) => {
                                     setFrom(val[0])
                                     setInputstyle({ display: "block" })
@@ -144,8 +173,8 @@ export default function Selectstaion(props) {
                                     // handleClick(e, index, val[2]);
 
                                 }}
-                                id={val[2]}
-                                style={{ color: "black" }}>{val[0]}
+                                id={val[2]}>
+                                    { prefrence=== "english" ? val[0] : val[1]}
                                 </span></li>
                         </ul>
                     }))}

@@ -54,6 +54,10 @@
   color: rgb(243, 238, 238);
 }
 
+.btn:active{
+  background-color: rgba(0, 128, 0, 0.822);
+}
+
 .swapbutton{
   display: flex;
   align-items: center;
