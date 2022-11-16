@@ -25,14 +25,23 @@ export default function Selectstaion(props) {
     useEffect(() => {
         props.stationinfo(data);
 
+        if (from && to !== "") {
+            if(from===to){
+                alert("both stations should be not the same! click on another station name")
+              }
+              else{
+    
+              
+            setTimeout(() => {
+    
+                navigate('/')
+            }, 200);
+        }
+        }
     }, [to]);
 
-    if (from && to !== "") {
-        setTimeout(() => {
+    
 
-            navigate('/')
-        }, 200);
-    }
 
     for (let key in station) {
         stationSortArray.push([station[key]["englishName"], station[key]["kannadaName"], station[key]["stationCode"]])
@@ -42,14 +51,16 @@ export default function Selectstaion(props) {
     stationSortArray.sort();
 
 
-
     const handleClick = (event, key, id) => {
         event.target.style.color = 'gray';
         event.target.style['pointer-events'] = 'none';
         event.target.style.cursor = 'default';
         setClickid(event.target.id)
+        // console.log("Hello tusif")
     };
-   
+    
+ 
+  
 
     return (
 
@@ -84,6 +95,7 @@ export default function Selectstaion(props) {
 
                                 style={{ color: routecolor }}
                             ><span
+                            className='StaionsNames'
                                 onClick={(e) => {
                                     setFrom(val.englishName)
                                     setInputstyle({ display: "block" })
@@ -95,7 +107,7 @@ export default function Selectstaion(props) {
                                         setFromstationcode(fromstationcode)
                                         setTostationcode(val.stationCode)
                                     }
-                                    handleClick(e, index, val.stationCode);
+                                    // handleClick(e, index, val.stationCode);
 
                                 }}
 
@@ -117,6 +129,7 @@ export default function Selectstaion(props) {
 
                                 style={{ color: Alphabetcolor }}
                             ><span
+                            className='StaionsNames'
                                 onClick={(e) => {
                                     setFrom(val[0])
                                     setInputstyle({ display: "block" })
@@ -128,7 +141,7 @@ export default function Selectstaion(props) {
                                         setFromstationcode(fromstationcode)
                                         setTostationcode(val[2])
                                     }
-                                    handleClick(e, index, val[2]);
+                                    // handleClick(e, index, val[2]);
 
                                 }}
                                 id={val[2]}
