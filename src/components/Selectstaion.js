@@ -113,8 +113,7 @@ export default function Selectstaion(props) {
                                 }}
 
                                 id={val.stationCode}
-                                style={{ color: "black" }}>{val.englishName + " " + val.kannadaName
-                                    }
+                                style={{ color: "black" }}>{val.englishName}
                                 </span></li>
                         </ul>
                     }))}
@@ -146,8 +145,7 @@ export default function Selectstaion(props) {
 
                                 }}
                                 id={val[2]}
-                                style={{ color: "black" }}>{val[0]
-                                    } {val[1]}
+                                style={{ color: "black" }}>{val[0]}
                                 </span></li>
                         </ul>
                     }))}
