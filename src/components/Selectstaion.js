@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Stations from '../local-json/station.json'
 import Routes from '../local-json/route.json'
 import { useNavigate } from 'react-router-dom';
+
+
 
 
 export default function Selectstaion(props) {
@@ -14,6 +16,7 @@ export default function Selectstaion(props) {
     const [inputstyle, setInputstyle] = useState({ display: "none" })
     const [sortoperation, setSortoperation] = useState("OrderByRoute")
     const [targetvalue, setTargetvalue] = useState("");
+    const [clickid, setClickid] = useState("")
     const stationSortArray = [];
     let routecolor = "";
     let Alphabetcolor = "";
@@ -33,19 +36,20 @@ export default function Selectstaion(props) {
 
     for (let key in station) {
         stationSortArray.push([station[key]["englishName"], station[key]["kannadaName"], station[key]["stationCode"]])
-
     }
+
 
     stationSortArray.sort();
 
-    const handleClick = (event, key) => {
+
+
+    const handleClick = (event, key, id) => {
         event.target.style.color = 'gray';
         event.target.style['pointer-events'] = 'none';
-        event.target.style.cursor = 'default'
-        // console.log(event.target);
-        // console.log('key index: ', key);
-
+        event.target.style.cursor = 'default';
+        setClickid(event.target.id)
     };
+   
 
     return (
 
@@ -58,9 +62,9 @@ export default function Selectstaion(props) {
                 <div className='infobox'>
                     <span>AVAILABLE STATIONS</span>
                     <label style={{ marginLeft: "3rem", marginRight: "2px" }} htmlFor="sort">Order By</label>
-                    <select 
-                    id='sort' 
-                    onChange={(e) => setSortoperation(e.target.value)}
+                    <select
+                        id='sort'
+                        onChange={(e) => setSortoperation(e.target.value)}
                     >
                         <option value="OrderByRoute">Route</option>
                         <option value="OrderByAlphabet">Alphabet</option>
@@ -91,7 +95,7 @@ export default function Selectstaion(props) {
                                         setFromstationcode(fromstationcode)
                                         setTostationcode(val.stationCode)
                                     }
-                                    handleClick(e, index)
+                                    handleClick(e, index, val.stationCode);
 
                                 }}
 
@@ -124,8 +128,7 @@ export default function Selectstaion(props) {
                                         setFromstationcode(fromstationcode)
                                         setTostationcode(val[2])
                                     }
-                                    handleClick(e, index)
-
+                                    handleClick(e, index, val[2]);
 
                                 }}
                                 id={val[2]}

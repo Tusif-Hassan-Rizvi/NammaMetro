@@ -12,6 +12,7 @@ export default function SelectRoutes(props) {
   const [varshikfare, setVarshikfare] = useState(0);
   const [tokenfare, setTokenfare] = useState(0);
   const [ticketstyle, setTicketstyle] = useState({ "display": "none" });
+  const [frominputstate, setFrominputstate]=useState("")
   const Fromstationcode = props.fromstationcode;
   const TostationCode = props.tostationcode;
 
@@ -33,7 +34,7 @@ export default function SelectRoutes(props) {
         {/* from  */}
         <div className='frominput'>
           <label htmlFor="from">From Station</label>
-          <Link to="/selectstation"><input type="text" id='from' value={fromstation} onChange={(e) => setFromstation(e.target.value)} placeholder='Enter From Station' /></Link>
+          <Link to="/selectstation"><input type="text" id='from' value={fromstation} onChange={(e) => setFromstation(e.target.value)} placeholder='Enter From Station' onClick={(e)=>setFrominputstate(fromstation)} /></Link>
         </div>
         <span className='swapbutton' onClick={SwapInputs}><img src={swap} draggable={false} alt="swap" /></span>
         {/* to */}
