@@ -28,6 +28,7 @@ export default function Selectstaion(props) {
         if (from && to !== "") {
             if(from===to){
                 alert("both stations should be not the same! click on another station name")
+                setTo("")
               }
               else{
     
