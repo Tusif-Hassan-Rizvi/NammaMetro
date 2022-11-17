@@ -12,20 +12,31 @@ export default function SelectRoutes(props) {
   const [varshikfare, setVarshikfare] = useState(0);
   const [tokenfare, setTokenfare] = useState(0);
   const [ticketstyle, setTicketstyle] = useState({ "display": "none" });
-  const [frominputstate, setFrominputstate]=useState("")
+  const [frominputstate, setFrominputstate] = useState("")
+  const [changestation, setChangestation] = useState("")
   const Fromstationcode = props.fromstationcode;
   const TostationCode = props.tostationcode;
 
-
   function CheckFare() {
-    setVarshikfare(fare[Fromstationcode][TostationCode]["cscFare"])
-    setTokenfare(fare[Fromstationcode][TostationCode]["tokenFare"])
-    setTicketstyle({ "display": "block" })
+  
+    if(props.from==="" &&  props.to===""){
+      alert("Please select stations name");
+    }
+   
+    else{
+      setVarshikfare(fare[Fromstationcode][TostationCode]["cscFare"])
+      setTokenfare(fare[Fromstationcode][TostationCode]["tokenFare"])
+      setTicketstyle({ "display": "block" })
+    }
   }
 
   function SwapInputs() {
     setFromstation(tostation);
     setTostation(fromstation)
+  }
+
+  function HandleOnChange(e) {
+    props.Changestation(fromstation)
   }
 
   return (
@@ -34,13 +45,13 @@ export default function SelectRoutes(props) {
         {/* from  */}
         <div className='frominput'>
           <label htmlFor="from">From Station</label>
-          <Link to="/selectstation"><input type="text" id='from' value={fromstation} onChange={(e) => setFromstation(e.target.value)} placeholder='Enter From Station' onClick={(e)=>setFrominputstate(fromstation)} /></Link>
+          <Link to="/selectstation"><input type="text" id='from' value={fromstation} onChange={(e) => setFromstation(e.target.value)} placeholder='Enter From Station' onClick={(e) => setFrominputstate(fromstation)} /></Link>
         </div>
         <span className='swapbutton' onClick={SwapInputs}><img src={swap} draggable={false} alt="swap" /></span>
         {/* to */}
         <div className='toinput'>
           <label htmlFor="to">To Station</label>
-          <Link to="/selectstation"> <input type="text" id='to' value={tostation} onChange={(e) => setTostation(e.target.value)} placeholder='Enter To station' /></Link>
+          <Link to="/selectstation"> <input type="text" id='to' value={tostation} onChange={(e) => setTostation(e.target.value)} placeholder='Enter To station' onClick={HandleOnChange} /></Link>
         </div>
         <button className='btn' onClick={CheckFare}>CHECK FARE</button>
       </div>

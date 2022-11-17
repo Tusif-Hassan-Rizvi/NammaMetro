@@ -1,21 +1,46 @@
-#language-section{
+#language-section {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-#language-section div{
+#language-section div {
   margin: 10px;
 }
-#language-section label{
+#language-section label {
   margin: 0px 5px;
   cursor: pointer;
 }
 
-#language-section input{
+#language-section input {
   cursor: pointer;
 }
 
+.station-name {
+  position: relative;
+}
+
+.mix-circle {
+  display: flex;
+  position: absolute;
+  top: 19px;
+  left: 443px;
+}
+
+.purple {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background-color: #a020f0;
+  padding: 0 1px;
+}
+
+.green {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background-color: #00ff00;
+}
 
 .station-name li {
   position: relative;
@@ -23,7 +48,7 @@
   font-size: 2rem;
 }
 
-.station-name span{
+.station-name span {
   position: absolute;
   color: black;
   cursor: pointer;
@@ -33,9 +58,8 @@
   top: 9.5px;
 }
 
-.station-name span:active{
-color: gray;
- 
+.station-name span:active {
+  color: gray;
 }
 
 .input-station {
@@ -59,7 +83,7 @@ color: gray;
   /* box-shadow: 0 0 8px rgba(0, 0, 0, 0.13); */
 }
 
-.station-list-box{
+.station-list-box {
   margin-left: 60px;
 }
 
@@ -72,45 +96,46 @@ color: gray;
   color: rgb(155, 155, 155);
   font-weight: 600;
 }
-.selectlabel{
+.selectlabel {
   margin-left: 3rem;
   margin-right: 1px;
 }
 
-.selectlabel{
+.selectlabel {
   position: relative;
 }
-.selectlabel img{
+.selectlabel img {
   position: absolute;
   width: 15px;
   left: -14px;
   bottom: -3px;
 }
 
-.select{
-  padding: 8px 18px;
-  color:black;
-  background-color: rgb(248, 247, 247);
-  border: 1px solid rgb(240, 239, 239);
-  border-radius: 5px;
+.select {
+  /* padding: 8px 18px; */
+  /* color:black; */
+  /* background-color: rgb(248, 247, 247); */
+  border: 1px solid white;
+  /* border-radius: 5px; */
   cursor: pointer;
-  appearance: none;  
+  appearance: none;
   outline: none;
   margin-left: 2px;
   cursor: pointer;
- 
 }
- 
-.select:hover{
-  outline: 1px solid rgb(226, 226, 226);
+
+@media only screen and (max-width: 1000px) {
+  .station-name li {
+    margin: 1.4rem 10rem;
+  }
 }
 
 @media only screen and (max-width: 600px) {
-  .input-station{
+  .input-station {
     width: 80vw;
   }
-  .station-name li{
-    margin:1.5rem 3rem;
+  .station-name li {
+    margin: 1.5rem 3rem;
   }
 
   .infobox {
@@ -118,22 +143,26 @@ color: gray;
     margin-right: 0px;
   }
 
-  .station-list-box{
+  .station-list-box {
     margin-left: 0;
   }
 
-
-  .select{
+  .select {
     padding: 2px 4px;
     border-radius: 2px;
   }
 
-  .selectlabel img{
+  .selectlabel img {
     width: 13px;
     bottom: -2px;
   }
 
-  .selectlabel{
+  .selectlabel {
     font-size: 15px;
+  }
+
+  .mix-circle {
+    top: 18px;
+    left: 10px;
   }
 }

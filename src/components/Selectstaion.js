@@ -22,8 +22,9 @@ export default function Selectstaion(props) {
     const stationSortArray = [];
     let routecolor = "";
     let Alphabetcolor = "";
+    let MixCircle="none";
     const navigate = useNavigate();
-    const data = { "from": from, "to": to, "fromstationcode": fromstationcode, "tostationcode": tostationcode};
+    const data = { "from": from, "to": to, "fromstationcode": fromstationcode, "tostationcode": tostationcode };
     useEffect(() => {
         props.stationinfo(data);
 
@@ -59,10 +60,10 @@ export default function Selectstaion(props) {
         event.target.style.cursor = 'default';
         setClickid(event.target.id)
         // console.log("Hello tusif")
-    };   
+    };
     localStorage.setItem("prefrence", language);
     const prefrence = localStorage.getItem('prefrence');
-
+    console.log(props.changestation);
     return (
 
         <>
@@ -118,16 +119,20 @@ export default function Selectstaion(props) {
                 <section className='station-list-box' id="showinfo">
 
                     {(station.map((val, index) => {
-                        { route[0].stop_list.includes(val.stationCode) ? routecolor = "#A020F0" : routecolor = "#00FF00" }
+                        { route[0].stop_list.includes(val.stationCode) && route[1].stop_list.includes(val.stationCode) ? routecolor = "red" : route[0].stop_list.includes(val.stationCode) ? routecolor = "#A020F0" : routecolor = "#00FF00" }
 
                         return <ul className='station-name' key={index}  >
+                            <div className="mix-circle" style={{display:MixCircle}}>
+                                <div className="purple"></div>
+                                <div className="green"></div>
+                            </div>
                             <li
 
                                 style={{ color: routecolor }}
                             ><span
                                 className='StaionsNames'
                                 onClick={(e) => {
-                                    setFrom(val.englishName)
+                                    setFrom(props.changestation === "" ? val.englishName : props.changestation)
                                     setInputstyle({ display: "block" })
                                     setFromstationcode(val.stationCode)
                                     if (from !== "") {
@@ -142,7 +147,7 @@ export default function Selectstaion(props) {
                                 }}
 
                                 id={val.stationCode}>
-                                    {prefrence === "english" ? val.englishName : val.kannadaName}
+                                    {prefrence === "kannada" ? val.kannadaName : val.englishName}
                                 </span></li>
                         </ul>
                     }))}
@@ -151,9 +156,14 @@ export default function Selectstaion(props) {
                 <section className='station-list-box' id="showinfo">
 
                     {(stationSortArray.map((val, index) => {
-                        { route[0].stop_list.includes(val[2]) ? Alphabetcolor = "#A020F0" : Alphabetcolor = "#00FF00" }
+                        { route[0].stop_list.includes(val[2]) && route[1].stop_list.includes(val[2]) ? Alphabetcolor = "red" : route[0].stop_list.includes(val[2]) ? Alphabetcolor = "#A020F0" : Alphabetcolor = "#00FF00" }
+
 
                         return <ul className='station-name' key={index}  >
+                             <div className="mix-circle" style={{display:MixCircle}}>
+                                <div className="purple"></div>
+                                <div className="green"></div>
+                            </div>
                             <li
 
                                 style={{ color: Alphabetcolor }}
@@ -174,7 +184,7 @@ export default function Selectstaion(props) {
 
                                 }}
                                 id={val[2]}>
-                                    { prefrence=== "english" ? val[0] : val[1]}
+                                    {prefrence === "kannada" ? val[1] : val[0]}
                                 </span></li>
                         </ul>
                     }))}
