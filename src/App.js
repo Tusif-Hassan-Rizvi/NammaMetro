@@ -105,15 +105,15 @@ function App() {
   }
   function HandleonInput(e) {
   
-    let showinfo=document.getElementById("Station-Name");
-    let value = e.target.value;
-   console.log(value, showinfo)
+  //   let showinfo=document.getElementById("showinfo");
+  //   let value = e.target.value;
+  //   value = value.toUpperCase();
 	
 	// for (let i = 0; i < showinfo.children.length; i++) {
 	// 	let child = showinfo.children[i];
 
-	// 	if (child.innerText.includes(value)) {
-	// 		child.style.display = 'flex';
+	// 	if (child.innerText.toUpperCase().includes(value)) {
+	// 		child.style.display = 'block';
 	// 	}
 	// 	else {
 	// 		child.style.display = 'none';
