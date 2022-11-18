@@ -41,6 +41,7 @@ export default function SelectRoutes(props) {
 
   return (
     <>
+    <section className='HomePage'>
       <div className="inputfield">
         {/* from  */}
         <div className='frominput'>
@@ -72,6 +73,7 @@ export default function SelectRoutes(props) {
           <div className='token-fare'>₹ {tokenfare}</div>
 
         </div>
+      </section>
       </section>
     </>
   )

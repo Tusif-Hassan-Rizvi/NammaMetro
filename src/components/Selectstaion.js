@@ -67,7 +67,7 @@ export default function Selectstaion(props) {
     return (
 
         <>
-
+<section className='StationListPage'>
             {/* input area  */}
             <section id='inputbox-section'>
                 <section id='language-section'>
@@ -191,6 +191,7 @@ export default function Selectstaion(props) {
 
                 </section>
             }
+            </section>
         </>
 
     )
