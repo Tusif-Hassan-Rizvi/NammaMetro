@@ -103,12 +103,29 @@ function App() {
     setHomedisplay("none")
     setStationlistdisplay("block")
   }
+  function HandleonInput(e) {
+  
+    let showinfo=document.getElementById("Station-Name");
+    let value = e.target.value;
+   console.log(value, showinfo)
+	
+	// for (let i = 0; i < showinfo.children.length; i++) {
+	// 	let child = showinfo.children[i];
+
+	// 	if (child.innerText.includes(value)) {
+	// 		child.style.display = 'flex';
+	// 	}
+	// 	else {
+	// 		child.style.display = 'none';
+	// 	}
+	// }
+  }
 
 
   return (
 
     <>
-    {/* language section  */}
+      {/* language section  */}
       <section id='language-section'>
         <div className='english-box'>
           <input
@@ -176,9 +193,9 @@ function App() {
       <section className='StationListPage' style={{ display: stationlistdisplay }}>
         {/* input area  */}
         <section id='inputbox-section'>
-          <input type="text" className='input-station' id="fromstation" onChange={(e) => setFrom(e.target.value)} value={from} placeholder={prefrence === "kannada" ? "ಹೊರಡುವ ನಿಲ್ದಾಣವನ್ನು ನಮೂದಿಸಿ" : "From Station"} onInput={(e) => setTargetvalue(e.target.value)} /><br />
-          <input type="text" style={inputstyle} className='input-station' id='tostation' onChange={(e) => setTo(e.target.value)} value={to}
-            placeholder={prefrence === "kannada" ? "ತಲಪುವಾ ನಿಲ್ದಾಣವನ್ನು ನಮೂದಿಸಿ" : "Enter To station"} onInput={(e) => setTargetvalue(e.target.value)} />
+          <input type="text" className='input-station' id="fromstation" value={from} placeholder={prefrence === "kannada" ? "ಹೊರಡುವ ನಿಲ್ದಾಣವನ್ನು ನಮೂದಿಸಿ" : "From Station"} onInput={HandleonInput} /><br />
+          <input type="text" style={inputstyle} className='input-station' id='tostation' value={to}
+            placeholder={prefrence === "kannada" ? "ತಲಪುವಾ ನಿಲ್ದಾಣವನ್ನು ನಮೂದಿಸಿ" : "Enter To station"} onInput={HandleonInput} />
           <div className='infobox'>
             <span >{prefrence === "kannada" ? "ಲಭ್ಯವಿರುವ ನಿಲ್ದಾಣಗಳು" : "AVAILABLE STATIONS"}</span>
             <label className='selectlabel' htmlFor="sort"> <img src={sortpng} alt="sortpng" /> {prefrence === "kannada" ? "ವಿಂಗಡಿಸು" : "Order By"}</label>
@@ -200,7 +217,7 @@ function App() {
             {(station.map((val, index) => {
               { route[0].stop_list.includes(val.stationCode) && route[1].stop_list.includes(val.stationCode) ? routecolor = "red" : route[0].stop_list.includes(val.stationCode) ? routecolor = "#A020F0" : routecolor = "#00FF00" }
 
-              return <ul className='station-name' key={index}  >
+              return <ul className='station-name' key={index} id="Station-Name" >
                 <div className="mix-circle" style={{ display: MixCircle }}>
                   <div className="purple"></div>
                   <div className="green"></div>
@@ -225,8 +242,7 @@ function App() {
                     // handleClick(e, index, val.stationCode);
 
                   }}
-
-                  id={val.stationCode}>
+                  id={val.stationCode} >
                     {prefrence === "kannada" ? val.kannadaName : val.englishName}
                   </span></li>
               </ul>
@@ -239,13 +255,13 @@ function App() {
               { route[0].stop_list.includes(val[2]) && route[1].stop_list.includes(val[2]) ? Alphabetcolor = "red" : route[0].stop_list.includes(val[2]) ? Alphabetcolor = "#A020F0" : Alphabetcolor = "#00FF00" }
 
 
-              return <ul className='station-name' key={index}  >
+              return <ul className='station-name' key={index} id="Station-Name" >
                 <div className="mix-circle" style={{ display: MixCircle }}>
                   <div className="purple"></div>
                   <div className="green"></div>
                 </div>
                 <li
-
+                  id="Station-Name"
                   style={{ color: Alphabetcolor }}
                 ><span
                   className='StaionsNames'
