@@ -65,7 +65,7 @@
 			"grpTcktFare": "35",
 			"tokenFare": "35"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "36.1",
 			"grpTcktFare": "38",
 			"tokenFare": "38"
@@ -322,7 +322,7 @@
 			"grpTcktFare": "35",
 			"tokenFare": "35"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "33.25",
 			"grpTcktFare": "35",
 			"tokenFare": "35"
@@ -579,7 +579,7 @@
 			"grpTcktFare": "30",
 			"tokenFare": "30"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "33.25",
 			"grpTcktFare": "35",
 			"tokenFare": "35"
@@ -836,7 +836,7 @@
 			"grpTcktFare": "30",
 			"tokenFare": "30"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "28.5",
 			"grpTcktFare": "30",
 			"tokenFare": "30"
@@ -1093,7 +1093,7 @@
 			"grpTcktFare": "28",
 			"tokenFare": "28"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "28.5",
 			"grpTcktFare": "30",
 			"tokenFare": "30"
@@ -1350,7 +1350,7 @@
 			"grpTcktFare": "25",
 			"tokenFare": "25"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "26.6",
 			"grpTcktFare": "28",
 			"tokenFare": "28"
@@ -1607,7 +1607,7 @@
 			"grpTcktFare": "22",
 			"tokenFare": "22"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "23.75",
 			"grpTcktFare": "25",
 			"tokenFare": "25"
@@ -1864,7 +1864,7 @@
 			"grpTcktFare": "20",
 			"tokenFare": "20"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "20.9",
 			"grpTcktFare": "22",
 			"tokenFare": "22"
@@ -2121,7 +2121,7 @@
 			"grpTcktFare": "18",
 			"tokenFare": "18"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "19",
 			"grpTcktFare": "20",
 			"tokenFare": "20"
@@ -2378,7 +2378,7 @@
 			"grpTcktFare": "15",
 			"tokenFare": "15"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "17.1",
 			"grpTcktFare": "18",
 			"tokenFare": "18"
@@ -2635,7 +2635,7 @@
 			"grpTcktFare": "15",
 			"tokenFare": "15"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "14.25",
 			"grpTcktFare": "15",
 			"tokenFare": "15"
@@ -2892,7 +2892,7 @@
 			"grpTcktFare": "10",
 			"tokenFare": "10"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "14.25",
 			"grpTcktFare": "15",
 			"tokenFare": "15"
@@ -3149,7 +3149,7 @@
 			"grpTcktFare": "10",
 			"tokenFare": "10"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "9.5",
 			"grpTcktFare": "10",
 			"tokenFare": "10"
@@ -3340,7 +3340,7 @@
 			"tokenFare": "50"
 		}
 	},
-	"VJN ": {
+	"VJN": {
 		"BYPH": {
 			"cscFare": "36.1",
 			"grpTcktFare": "38",
@@ -3406,7 +3406,7 @@
 			"grpTcktFare": "10",
 			"tokenFare": "10"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "9.5",
 			"grpTcktFare": "10",
 			"tokenFare": "10"
@@ -3663,7 +3663,7 @@
 			"grpTcktFare": "15",
 			"tokenFare": "15"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "9.5",
 			"grpTcktFare": "10",
 			"tokenFare": "10"
@@ -3920,7 +3920,7 @@
 			"grpTcktFare": "15",
 			"tokenFare": "15"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "14.25",
 			"grpTcktFare": "15",
 			"tokenFare": "15"
@@ -4177,7 +4177,7 @@
 			"grpTcktFare": "18",
 			"tokenFare": "18"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "14.25",
 			"grpTcktFare": "15",
 			"tokenFare": "15"
@@ -4434,7 +4434,7 @@
 			"grpTcktFare": "20",
 			"tokenFare": "20"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "17.1",
 			"grpTcktFare": "18",
 			"tokenFare": "18"
@@ -4691,7 +4691,7 @@
 			"grpTcktFare": "22",
 			"tokenFare": "22"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "19",
 			"grpTcktFare": "20",
 			"tokenFare": "20"
@@ -4948,7 +4948,7 @@
 			"grpTcktFare": "25",
 			"tokenFare": "25"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "20.9",
 			"grpTcktFare": "22",
 			"tokenFare": "22"
@@ -5205,7 +5205,7 @@
 			"grpTcktFare": "28",
 			"tokenFare": "28"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "23.75",
 			"grpTcktFare": "25",
 			"tokenFare": "25"
@@ -5462,7 +5462,7 @@
 			"grpTcktFare": "30",
 			"tokenFare": "30"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "26.6",
 			"grpTcktFare": "28",
 			"tokenFare": "28"
@@ -5719,7 +5719,7 @@
 			"grpTcktFare": "30",
 			"tokenFare": "30"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "28.5",
 			"grpTcktFare": "30",
 			"tokenFare": "30"
@@ -5976,7 +5976,7 @@
 			"grpTcktFare": "18",
 			"tokenFare": "18"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "19",
 			"grpTcktFare": "20",
 			"tokenFare": "20"
@@ -6233,7 +6233,7 @@
 			"grpTcktFare": "20",
 			"tokenFare": "20"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "20.9",
 			"grpTcktFare": "22",
 			"tokenFare": "22"
@@ -6490,7 +6490,7 @@
 			"grpTcktFare": "22",
 			"tokenFare": "22"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "23.75",
 			"grpTcktFare": "25",
 			"tokenFare": "25"
@@ -6747,7 +6747,7 @@
 			"grpTcktFare": "25",
 			"tokenFare": "25"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "26.6",
 			"grpTcktFare": "28",
 			"tokenFare": "28"
@@ -7004,7 +7004,7 @@
 			"grpTcktFare": "28",
 			"tokenFare": "28"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "28.5",
 			"grpTcktFare": "30",
 			"tokenFare": "30"
@@ -7261,7 +7261,7 @@
 			"grpTcktFare": "30",
 			"tokenFare": "30"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "28.5",
 			"grpTcktFare": "30",
 			"tokenFare": "30"
@@ -7518,7 +7518,7 @@
 			"grpTcktFare": "30",
 			"tokenFare": "30"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "33.25",
 			"grpTcktFare": "35",
 			"tokenFare": "35"
@@ -7775,7 +7775,7 @@
 			"grpTcktFare": "35",
 			"tokenFare": "35"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "33.25",
 			"grpTcktFare": "35",
 			"tokenFare": "35"
@@ -8032,7 +8032,7 @@
 			"grpTcktFare": "35",
 			"tokenFare": "35"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "36.1",
 			"grpTcktFare": "38",
 			"tokenFare": "38"
@@ -8289,7 +8289,7 @@
 			"grpTcktFare": "38",
 			"tokenFare": "38"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "38",
 			"grpTcktFare": "40",
 			"tokenFare": "40"
@@ -8546,7 +8546,7 @@
 			"grpTcktFare": "40",
 			"tokenFare": "40"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "39.9",
 			"grpTcktFare": "42",
 			"tokenFare": "42"
@@ -8803,7 +8803,7 @@
 			"grpTcktFare": "42",
 			"tokenFare": "42"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "42.75",
 			"grpTcktFare": "45",
 			"tokenFare": "45"
@@ -9060,7 +9060,7 @@
 			"grpTcktFare": "45",
 			"tokenFare": "45"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "42.75",
 			"grpTcktFare": "45",
 			"tokenFare": "45"
@@ -9317,7 +9317,7 @@
 			"grpTcktFare": "18",
 			"tokenFare": "18"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "19",
 			"grpTcktFare": "20",
 			"tokenFare": "20"
@@ -9574,7 +9574,7 @@
 			"grpTcktFare": "20",
 			"tokenFare": "20"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "20.9",
 			"grpTcktFare": "22",
 			"tokenFare": "22"
@@ -9831,7 +9831,7 @@
 			"grpTcktFare": "22",
 			"tokenFare": "22"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "23.75",
 			"grpTcktFare": "25",
 			"tokenFare": "25"
@@ -10088,7 +10088,7 @@
 			"grpTcktFare": "25",
 			"tokenFare": "25"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "26.6",
 			"grpTcktFare": "28",
 			"tokenFare": "28"
@@ -10345,7 +10345,7 @@
 			"grpTcktFare": "28",
 			"tokenFare": "28"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "28.5",
 			"grpTcktFare": "30",
 			"tokenFare": "30"
@@ -10602,7 +10602,7 @@
 			"grpTcktFare": "30",
 			"tokenFare": "30"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "28.5",
 			"grpTcktFare": "30",
 			"tokenFare": "30"
@@ -10859,7 +10859,7 @@
 			"grpTcktFare": "30",
 			"tokenFare": "30"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "33.25",
 			"grpTcktFare": "35",
 			"tokenFare": "35"
@@ -11116,7 +11116,7 @@
 			"grpTcktFare": "35",
 			"tokenFare": "35"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "33.25",
 			"grpTcktFare": "35",
 			"tokenFare": "35"
@@ -11373,7 +11373,7 @@
 			"grpTcktFare": "35",
 			"tokenFare": "35"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "36.1",
 			"grpTcktFare": "38",
 			"tokenFare": "38"
@@ -11630,7 +11630,7 @@
 			"grpTcktFare": "38",
 			"tokenFare": "38"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "38",
 			"grpTcktFare": "40",
 			"tokenFare": "40"
@@ -11887,7 +11887,7 @@
 			"grpTcktFare": "40",
 			"tokenFare": "40"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "39.9",
 			"grpTcktFare": "42",
 			"tokenFare": "42"
@@ -12144,7 +12144,7 @@
 			"grpTcktFare": "42",
 			"tokenFare": "42"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "42.75",
 			"grpTcktFare": "45",
 			"tokenFare": "45"
@@ -12401,7 +12401,7 @@
 			"grpTcktFare": "45",
 			"tokenFare": "45"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "42.75",
 			"grpTcktFare": "45",
 			"tokenFare": "45"
@@ -12658,7 +12658,7 @@
 			"grpTcktFare": "45",
 			"tokenFare": "45"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "47.5",
 			"grpTcktFare": "50",
 			"tokenFare": "50"
@@ -12915,7 +12915,7 @@
 			"grpTcktFare": "50",
 			"tokenFare": "50"
 		},
-		"VJN ": {
+		"VJN": {
 			"cscFare": "47.5",
 			"grpTcktFare": "50",
 			"tokenFare": "50"
