@@ -8,6 +8,7 @@ import fare from './local-json/fare_list.json'
 import blackarrow from './blackarrow.png'
 import sortpng from './sort.svg'
 import Routes from './local-json/route.json'
+import Swal from 'sweetalert2'
 
 
 function App() {
@@ -41,7 +42,12 @@ function App() {
 
     if (from && to !== "") {
       if (from === to) {
-        alert(prefrence === "kannada" ? "ಎರಡೂ ನಿಲ್ದಾಣಗಳು ಒಂದೇ ಆಗಿರಬಾರದು! ಮತ್ತೊಂದು ನಿಲ್ದಾಣದ ಹೆಸರನ್ನು ಆಯ್ಕೆಮಾಡಿ" : "both stations should be not the same! click on another station name")
+        Swal.fire(
+          prefrence === "kannada" ? "ಎಚ್ಚರಿಕೆ!" : "Warning!",
+          prefrence === "kannada" ? "ಎರಡೂ ನಿಲ್ದಾಣಗಳು ಒಂದೇ ಆಗಿರಬಾರದು! ಮತ್ತೊಂದು ನಿಲ್ದಾಣದ ಹೆಸರನ್ನು ಆಯ್ಕೆಮಾಡಿ" : "both stations should be not the same! click on another station name",
+          'warning'
+        )
+        // alert(prefrence === "kannada" ? "ಎರಡೂ ನಿಲ್ದಾಣಗಳು ಒಂದೇ ಆಗಿರಬಾರದು! ಮತ್ತೊಂದು ನಿಲ್ದಾಣದ ಹೆಸರನ್ನು ಆಯ್ಕೆಮಾಡಿ" : "both stations should be not the same! click on another station name")
         setTo("")
       }
       else {
@@ -76,7 +82,13 @@ function App() {
   function CheckFare() {
 
     if (from === "" && to === "") {
-      alert(prefrence === "kannada" ? "ದಯವಿಟ್ಟು ನಿಲ್ದಾಣಗಳ ಹೆಸರನ್ನು ಆಯ್ಕೆಮಾಡಿ" : "Please select stations name");
+      Swal.fire(
+
+        prefrence === "kannada" ? "ಎಚ್ಚರಿಕೆ!" : "Warning!",
+        prefrence === "kannada" ? "ದಯವಿಟ್ಟು ನಿಲ್ದಾಣಗಳ ಹೆಸರನ್ನು ಆಯ್ಕೆಮಾಡಿ" : "Please select stations name",
+        'warning'
+      )
+      // alert(prefrence === "kannada" ? "ದಯವಿಟ್ಟು ನಿಲ್ದಾಣಗಳ ಹೆಸರನ್ನು ಆಯ್ಕೆಮಾಡಿ" : "Please select stations name");
     }
 
     else {
@@ -104,21 +116,34 @@ function App() {
     setStationlistdisplay("block")
   }
   function HandleonInput(e) {
-  
-  //   let showinfo=document.getElementById("showinfo");
-  //   let value = e.target.value;
-  //   value = value.toUpperCase();
-	
-	// for (let i = 0; i < showinfo.children.length; i++) {
-	// 	let child = showinfo.children[i];
 
-	// 	if (child.innerText.toUpperCase().includes(value)) {
-	// 		child.style.display = 'block';
-	// 	}
-	// 	else {
-	// 		child.style.display = 'none';
-	// 	}
-	// }
+    //   let showinfo=document.getElementById("showinfo");
+    //   let value = e.target.value;
+    //   value = value.toUpperCase();
+
+    // for (let i = 0; i < showinfo.children.length; i++) {
+    // 	let child = showinfo.children[i];
+
+    // 	if (child.innerText.toUpperCase().includes(value)) {
+    // 		child.style.display = 'block';
+    // 	}
+    // 	else {
+    // 		child.style.display = 'none';
+    // 	}
+    // }
+  }
+
+  function EnglishRadioClick() {
+    setLanguage("english")
+    setTo("")
+    setFrom("")
+    setTicketstyle({ "display": "none" })
+  }
+  function KannadaRadioClick() {
+    setLanguage("kannada")
+    setTo("")
+    setFrom("")
+    setTicketstyle({ "display": "none" })
   }
 
 
@@ -133,7 +158,7 @@ function App() {
             value="english"
             id='english'
             name='language'
-            onClick={() => setLanguage("english")}
+            onClick={EnglishRadioClick}
             onChange={(e) => e.target.value}
           />
           <label htmlFor="english">English</label>
@@ -145,7 +170,7 @@ function App() {
             value="kannada"
             id='kannada'
             name='language'
-            onClick={() => setLanguage("kannada")}
+            onClick={KannadaRadioClick}
             onChange={(e) => e.target.value}
           />
           <label htmlFor="kannada">ಕನ್ನಡ</label>
@@ -160,7 +185,7 @@ function App() {
             <label htmlFor="from">{prefrence === "kannada" ? " ಯಾವ ನಿಲ್ದಾಣದಿಂದ " : "From Station"}</label>
             <input type="text" id='from' value={from} onChange={(e) => setFrom(e.target.value)} placeholder={prefrence === "kannada" ? "ಹೊರಡುವ ನಿಲ್ದಾಣವನ್ನು ನಮೂದಿಸಿ" : "From Station"} onClick={HandleOnChangeFrom} />
           </div>
-          <span className='swapbutton' onClick={SwapInputs}><img src={swap} draggable={false} alt="swap" /></span>
+          {/* <span className='swapbutton' onClick={SwapInputs}><img src={swap} draggable={false} alt="swap" /></span> */}
           {/* to */}
           <div className='toinput'>
             <label htmlFor="to">{prefrence === "kannada" ? "ಯಾವ ನಿಲ್ದಾಣಕ್ಕೆ" : "To Station"}</label>
@@ -172,9 +197,9 @@ function App() {
         <section className='output-secton'>
           <div className="ticket-info-box" style={ticketstyle}>
             <div className='staion-name'>
-              <span>{from}</span>
+              {/* <span>{from}</span>
               <img src={blackarrow} alt="arrowpng" />
-              <span>{to}</span>
+              <span>{to}</span> */}
             </div>
             <div className="logo-box">
               <img src={logo} alt="image" draggable="false" className='metro-logo' />
