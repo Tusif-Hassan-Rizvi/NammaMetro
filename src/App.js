@@ -244,12 +244,12 @@ function App() {
 
               return <ul className='station-name' key={index} id="Station-Name" >
                 {route[0].stop_list.includes(val.stationCode) && route[1].stop_list.includes(val.stationCode) ?
-                  <div className="mix-circle" style={{ display: "flex" }}>
-                    <div className="purple"></div>
-                    <div className="green"></div>
+                  <div className="mix-circle" style={{ display: "block" }}>
+                    {/* <div className="purple"></div>
+                    <div className="green"></div> */}
                   </div> : <div className="mix-circle" style={{ display: "none" }}>
-                    <div className="purple"></div>
-                    <div className="green"></div>
+                    {/* <div className="purple"></div>
+                    <div className="green"></div> */}
                   </div>}
                 <li
 
