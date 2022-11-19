@@ -29,6 +29,7 @@
 
 .purple {
   position: absolute;
+  z-index: 5;
   width: 12px;
   height: 6px;
   background-color: #a020f0;
@@ -39,7 +40,7 @@
 
 .green {
   position: absolute;
-  left: 7px;
+  left: 6px;
   width: 12px;
   height: 6px;
   background-color: #00ff00;
@@ -170,5 +171,9 @@
   .mix-circle {
     top: 18px;
     left: 10px;
+  }
+
+  .green{
+    left: 6.6px;
   }
 }
