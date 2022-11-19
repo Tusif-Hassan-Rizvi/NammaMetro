@@ -34,7 +34,7 @@ function App() {
   const stationSortArray = [];
   let routecolor = "";
   let Alphabetcolor = "";
-  let MixCircle = "none";
+  let MixCircle = "block";
 
 
   useEffect(() => {
@@ -240,13 +240,17 @@ function App() {
           <section className='station-list-box' id="showinfo">
 
             {(station.map((val, index) => {
-              { route[0].stop_list.includes(val.stationCode) && route[1].stop_list.includes(val.stationCode) ? routecolor = "red" : route[0].stop_list.includes(val.stationCode) ? routecolor = "#A020F0" : routecolor = "#00FF00" }
+              { route[0].stop_list.includes(val.stationCode) && route[1].stop_list.includes(val.stationCode) ? routecolor = "transparent" : route[0].stop_list.includes(val.stationCode) ? routecolor = "#A020F0" : routecolor = "#00FF00" }
 
               return <ul className='station-name' key={index} id="Station-Name" >
-                <div className="mix-circle" style={{ display: MixCircle }}>
-                  <div className="purple"></div>
-                  <div className="green"></div>
-                </div>
+                {route[0].stop_list.includes(val.stationCode) && route[1].stop_list.includes(val.stationCode) ?
+                  <div className="mix-circle" style={{ display: "flex" }}>
+                    <div className="purple"></div>
+                    <div className="green"></div>
+                  </div> : <div className="mix-circle" style={{ display: "none" }}>
+                    <div className="purple"></div>
+                    <div className="green"></div>
+                  </div>}
                 <li
 
                   style={{ color: routecolor }}
@@ -277,14 +281,18 @@ function App() {
           <section className='station-list-box' id="showinfo">
 
             {(stationSortArray.map((val, index) => {
-              { route[0].stop_list.includes(val[2]) && route[1].stop_list.includes(val[2]) ? Alphabetcolor = "red" : route[0].stop_list.includes(val[2]) ? Alphabetcolor = "#A020F0" : Alphabetcolor = "#00FF00" }
+              { route[0].stop_list.includes(val[2]) && route[1].stop_list.includes(val[2]) ? Alphabetcolor = "transparent" : route[0].stop_list.includes(val[2]) ? Alphabetcolor = "#A020F0" : Alphabetcolor = "#00FF00" }
 
 
               return <ul className='station-name' key={index} id="Station-Name" >
-                <div className="mix-circle" style={{ display: MixCircle }}>
-                  <div className="purple"></div>
-                  <div className="green"></div>
-                </div>
+                {route[0].stop_list.includes(val[2]) && route[1].stop_list.includes(val[2]) ?
+                  <div className="mix-circle" style={{ display: "flex" }}>
+                    <div className="purple"></div>
+                    <div className="green"></div>
+                  </div> : <div className="mix-circle" style={{ display: "none" }}>
+                    <div className="purple"></div>
+                    <div className="green"></div>
+                  </div>}
                 <li
                   id="Station-Name"
                   style={{ color: Alphabetcolor }}

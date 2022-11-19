@@ -24,22 +24,28 @@
   display: flex;
   position: absolute;
   top: 19px;
-  left: 443px;
+  left: 448px;
 }
 
 .purple {
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
+  position: absolute;
+  width: 12px;
+  height: 6px;
   background-color: #a020f0;
-  padding: 0 1px;
+  border-top-left-radius: 110px; /* 100px of height + 10px of border */
+  border-top-right-radius: 110px; /* 100px of height + 10px of border */
+  transform: rotate(271deg);
 }
 
 .green {
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
+  position: absolute;
+  left: 7px;
+  width: 12px;
+  height: 6px;
   background-color: #00ff00;
+  border-top-left-radius: 110px; /* 100px of height + 10px of border */
+  border-top-right-radius: 110px; /* 100px of height + 10px of border */
+  transform: rotate(90deg);
 }
 
 .station-name li {
