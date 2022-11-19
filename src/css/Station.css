@@ -21,10 +21,14 @@
 }
 
 .mix-circle {
-  display: flex;
+  width: 12px;
+  height: 12px;
   position: absolute;
   top: 19px;
-  left: 448px;
+  left: 450px; 
+  color: transparent;
+  background: linear-gradient(to right, #A020F0 0%, #A020F0 50%, #00FF00 50%, #00FF00 100%);
+  border-radius: 50%;
 }
 
 .purple {
