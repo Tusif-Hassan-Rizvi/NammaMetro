@@ -25,9 +25,15 @@
   height: 12px;
   position: absolute;
   top: 19px;
-  left: 450px; 
+  left: 450px;
   color: transparent;
-  background: linear-gradient(to right, #A020F0 0%, #A020F0 50%, #00FF00 50%, #00FF00 100%);
+  background: linear-gradient(
+    to right,
+    #a020f0 0%,
+    #a020f0 50%,
+    #00ff00 50%,
+    #00ff00 100%
+  );
   border-radius: 50%;
 }
 
@@ -74,6 +80,15 @@
 }
 
 .input-station {
+  width: 30vw;
+  padding: 10px 5px;
+  border-radius: 5px;
+  outline: none;
+  border: 2px solid orangered;
+  margin: 20px;
+  caret-color: transparent;
+}
+.search-station {
   width: 30vw;
   padding: 10px 5px;
   border-radius: 5px;
@@ -135,14 +150,55 @@
   cursor: pointer;
 }
 
+.previous-history {
+  width: 450px;
+  height: 10vh;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+  border-radius: 10px;
+  margin-left: 35vw;
+}
+
+.previous-history-heading {
+  font-weight: bold;
+  color: gray;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.previous-history-station {
+  font-size: 15px;
+  padding: 0px 30px;
+}
+
+.previous-history-station {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.previous-history-station span {
+  font-weight: bold;
+}
+
+.history-logo {
+  width: 30px;
+  transform: rotate(90deg);
+  margin: 0 40px;
+}
+
 @media only screen and (max-width: 1000px) {
   .station-name li {
     margin: 1.4rem 10rem;
   }
+
 }
 
 @media only screen and (max-width: 600px) {
   .input-station {
+    width: 80vw;
+  }
+
+  .search-station{
     width: 80vw;
   }
   .station-name li {
@@ -177,7 +233,21 @@
     left: 19px;
   }
 
-  .green{
+  .green {
     left: 6.2px;
+  }
+
+  .previous-history{
+   width: 300px;
+   margin: 0 35px;
+  }
+
+  .history-logo {
+    margin: 0 15px;
+  }
+
+  .previous-history-station{
+    font-size: 10px;
+    padding: 0 20px;
   }
 }

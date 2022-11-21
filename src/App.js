@@ -9,6 +9,7 @@ import blackarrow from './blackarrow.png'
 import sortpng from './sort.svg'
 import Routes from './local-json/route.json'
 import Swal from 'sweetalert2'
+import { json } from 'react-router-dom';
 
 
 function App() {
@@ -20,9 +21,11 @@ function App() {
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [inputstyle, setInputstyle] = useState({ display: "none" })
+  const [inputtostyle, setInputtostyle] = useState({ display: "none" })
   const [sortoperation, setSortoperation] = useState("OrderByRoute")
   const [targetvalue, setTargetvalue] = useState("");
-  const [clickid, setClickid] = useState("")
+  const [clickidroute, setClickidroute] = useState("")
+  const [clickidalpha, setClickidalpha] = useState("")
   const [language, setLanguage] = useState(localStorage.getItem('prefrence'));
   const [varshikfare, setVarshikfare] = useState(0);
   const [tokenfare, setTokenfare] = useState(0);
@@ -30,15 +33,17 @@ function App() {
   const [frominputstate, setFrominputstate] = useState("")
   const [homedisplay, setHomedisplay] = useState("block");
   const [stationlistdisplay, setStationlistdisplay] = useState("none")
-
+  const [searchvalue, setSearchvalue] = useState("")
+  const [languagedisplay, setLanguagedisplay]=useState("flex")
+  const [historystyle,setHistorystyle]=useState("block")
+  
   const stationSortArray = [];
   let routecolor = "";
   let Alphabetcolor = "";
   let MixCircle = "block";
-
+  const previoushistory=JSON.parse(localStorage.getItem("SearchHistory"))===null?"":JSON.parse(localStorage.getItem("SearchHistory"))
 
   useEffect(() => {
-
 
     if (from && to !== "") {
       if (from === to) {
@@ -47,34 +52,33 @@ function App() {
           prefrence === "kannada" ? "ಎರಡೂ ನಿಲ್ದಾಣಗಳು ಒಂದೇ ಆಗಿರಬಾರದು! ಮತ್ತೊಂದು ನಿಲ್ದಾಣದ ಹೆಸರನ್ನು ಆಯ್ಕೆಮಾಡಿ" : "both stations should be not the same! click on another station name",
           'warning'
         )
-        // alert(prefrence === "kannada" ? "ಎರಡೂ ನಿಲ್ದಾಣಗಳು ಒಂದೇ ಆಗಿರಬಾರದು! ಮತ್ತೊಂದು ನಿಲ್ದಾಣದ ಹೆಸರನ್ನು ಆಯ್ಕೆಮಾಡಿ" : "both stations should be not the same! click on another station name")
         setTo("")
       }
       else {
-
-
         setHomedisplay("block");
+        setLanguagedisplay("flex")
         setStationlistdisplay("none");
         setTicketstyle({ "display": "none" })
       }
     }
   }, [to]);
-
   for (let key in station) {
     stationSortArray.push([station[key]["englishName"], station[key]["kannadaName"], station[key]["stationCode"]])
   }
 
+  if (sortoperation === 'OrderByAlphabet') {
 
-  stationSortArray.sort();
+    stationSortArray.sort();
+  }
 
+  const handleClick = (event, index, id) => {
+    let elem = document.getElementById(id);
+    elem.style.color = 'gray';
+    elem.style['pointer-events'] = 'none';
+    elem.style.cursor = 'default';
 
-  const handleClick = (event, key, id) => {
-    event.target.style.color = 'gray';
-    event.target.style['pointer-events'] = 'none';
-    event.target.style.cursor = 'default';
-    setClickid(event.target.id)
-    // console.log("Hello tusif")
   };
+
   localStorage.setItem("prefrence", language);
   const prefrence = localStorage.getItem('prefrence');
 
@@ -88,13 +92,14 @@ function App() {
         prefrence === "kannada" ? "ದಯವಿಟ್ಟು ನಿಲ್ದಾಣಗಳ ಹೆಸರನ್ನು ಆಯ್ಕೆಮಾಡಿ" : "Please select stations name",
         'warning'
       )
-      // alert(prefrence === "kannada" ? "ದಯವಿಟ್ಟು ನಿಲ್ದಾಣಗಳ ಹೆಸರನ್ನು ಆಯ್ಕೆಮಾಡಿ" : "Please select stations name");
     }
 
     else {
       setVarshikfare(fare[fromstationcode][tostationcode]["cscFare"])
       setTokenfare(fare[fromstationcode][tostationcode]["tokenFare"])
       setTicketstyle({ "display": "block" })
+      localStorage.setItem("SearchHistory", JSON.stringify({"fromstaionHistory":from, "tostationhistory":to}))
+      setHistorystyle("none")
     }
   }
 
@@ -108,29 +113,33 @@ function App() {
     setFrom("")
     setTo("")
     setHomedisplay("none")
+    setLanguagedisplay("none")
     setStationlistdisplay("block")
+    setInputstyle({ display: "none" })
   }
   function HandleOnChangeTo(e) {
     setTo("")
     setHomedisplay("none")
+    setLanguagedisplay("none")
     setStationlistdisplay("block")
   }
   function HandleonInput(e) {
 
-    //   let showinfo=document.getElementById("showinfo");
-    //   let value = e.target.value;
-    //   value = value.toUpperCase();
+    let showinfo = document.getElementById("showinfo");
+    let value = e.target.value;
+    value = value.toUpperCase();
 
-    // for (let i = 0; i < showinfo.children.length; i++) {
-    // 	let child = showinfo.children[i];
+    for (let i = 0; i < showinfo.children.length; i++) {
+      let child = showinfo.children[i];
 
-    // 	if (child.innerText.toUpperCase().includes(value)) {
-    // 		child.style.display = 'block';
-    // 	}
-    // 	else {
-    // 		child.style.display = 'none';
-    // 	}
-    // }
+      if (child.innerText.toUpperCase().includes(value)) {
+        child.style.display = 'block';
+      }
+      else {
+        child.style.display = "none"
+      }
+    }
+
   }
 
   function EnglishRadioClick() {
@@ -145,13 +154,11 @@ function App() {
     setFrom("")
     setTicketstyle({ "display": "none" })
   }
-
-
   return (
 
     <>
       {/* language section  */}
-      <section id='language-section'>
+      <section id='language-section' style={{ display: languagedisplay }}>
         <div className='english-box'>
           <input
             type="radio"
@@ -183,7 +190,7 @@ function App() {
           {/* from  */}
           <div className='frominput'>
             <label htmlFor="from">{prefrence === "kannada" ? " ಯಾವ ನಿಲ್ದಾಣದಿಂದ " : "From Station"}</label>
-            <input type="text" id='from' value={from} onChange={(e) => setFrom(e.target.value)} placeholder={prefrence === "kannada" ? "ಹೊರಡುವ ನಿಲ್ದಾಣವನ್ನು ನಮೂದಿಸಿ" : "From Station"} onClick={HandleOnChangeFrom} />
+            <input type="text" id='from' value={from} onChange={(e) => setFrom(e.target.value)} placeholder={prefrence === "kannada" ? "ಹೊರಡುವ ನಿಲ್ದಾಣವನ್ನು ನಮೂದಿಸಿ" : "Enter From Station"} onClick={HandleOnChangeFrom} />
           </div>
           {/* <span className='swapbutton' onClick={SwapInputs}><img src={swap} draggable={false} alt="swap" /></span> */}
           {/* to */}
@@ -193,6 +200,12 @@ function App() {
           </div>
           <button className='btn' onClick={CheckFare}>{prefrence === "kannada" ? "ದರವನ್ನು ಪರಿಶೀಲಿಸಿ" : "CHECK FARE"}</button>
         </div>
+
+        {/* History section  */}
+        <section className='previous-history' style={{display:historystyle}}>
+          <div className='previous-history-heading'>Previous search</div>
+          <div className='previous-history-station'><span>{previoushistory.fromstaionHistory}</span> <img className='history-logo' src={blackarrow} alt="arrowpng" /> <span>{previoushistory.tostationhistory}</span></div>
+        </section>
 
         <section className='output-secton'>
           <div className="ticket-info-box" style={ticketstyle}>
@@ -218,9 +231,15 @@ function App() {
       <section className='StationListPage' style={{ display: stationlistdisplay }}>
         {/* input area  */}
         <section id='inputbox-section'>
-          <input type="text" className='input-station' id="fromstation" value={from} placeholder={prefrence === "kannada" ? "ಹೊರಡುವ ನಿಲ್ದಾಣವನ್ನು ನಮೂದಿಸಿ" : "From Station"} onInput={HandleonInput} /><br />
-          <input type="text" style={inputstyle} className='input-station' id='tostation' value={to}
-            placeholder={prefrence === "kannada" ? "ತಲಪುವಾ ನಿಲ್ದಾಣವನ್ನು ನಮೂದಿಸಿ" : "Enter To station"} onInput={HandleonInput} />
+          {/* from station box  */}
+          <input type="text" style={inputstyle} className='input-station' id="fromstation" value={from}
+            placeholder={prefrence === "kannada" ? "ಹೊರಡುವ ನಿಲ್ದಾಣವನ್ನು ನಮೂದಿಸಿ" : "From Station"} /><br />
+          {/* to station box */}
+          <input type="text" style={inputtostyle} className='input-station' id='tostation' value={to}
+            placeholder={prefrence === "kannada" ? "ತಲಪುವಾ ನಿಲ್ದಾಣವನ್ನು ನಮೂದಿಸಿ" : "To station"} />
+          {/* search box */}
+          <input className='search-station' type="search" placeholder={prefrence === "kannada" ? "ನಿಲ್ದಾಣದ ಹೆಸರನ್ನು ನಮೂದಿಸಿ" : "Enter Station Name"} value={searchvalue} onInput={HandleonInput} onChange={(e) => setSearchvalue(e.target.value)} />
+
           <div className='infobox'>
             <span >{prefrence === "kannada" ? "ಲಭ್ಯವಿರುವ ನಿಲ್ದಾಣಗಳು" : "AVAILABLE STATIONS"}</span>
             <label className='selectlabel' htmlFor="sort"> <img src={sortpng} alt="sortpng" /> {prefrence === "kannada" ? "ವಿಂಗಡಿಸು" : "Order By"}</label>
@@ -236,90 +255,43 @@ function App() {
         </section>
 
         {/* output area  */}
-        {sortoperation === "OrderByRoute" ?
-          <section className='station-list-box' id="showinfo">
 
-            {(station.map((val, index) => {
-              { route[0].stop_list.includes(val.stationCode) && route[1].stop_list.includes(val.stationCode) ? routecolor = "transparent" : route[0].stop_list.includes(val.stationCode) ? routecolor = "#A020F0" : routecolor = "#00FF00" }
+        <section className='station-list-box' id="showinfo">
 
-              return <ul className='station-name' key={index} id="Station-Name" >
-                {route[0].stop_list.includes(val.stationCode) && route[1].stop_list.includes(val.stationCode) ?
-                  <div className="mix-circle" style={{ display: "block" }}>
-                    {/* <div className="purple"></div>
-                    <div className="green"></div> */}
-                  </div> : <div className="mix-circle" style={{ display: "none" }}>
-                    {/* <div className="purple"></div>
-                    <div className="green"></div> */}
-                  </div>}
-                <li
+          {(stationSortArray.map((val, index) => {
+            { route[0].stop_list.includes(val[2]) && route[1].stop_list.includes(val[2]) ? routecolor = "transparent" : route[0].stop_list.includes(val[2]) ? routecolor = "#A020F0" : routecolor = "#00FF00" }
 
-                  style={{ color: routecolor }}
-                ><span
-                  className='StaionsNames'
-                  onClick={(e) => {
-                    // setFrom(changestation === "" ? val.englishName : changestation)
-                    setFrom(prefrence === "kannada" ? val.kannadaName : val.englishName)
-                    setInputstyle({ display: "block" })
-                    setFromstationcode(val.stationCode)
-                    if (from !== "") {
-                      setFrom(from)
-                      setTo(prefrence === "kannada" ? val.kannadaName : val.englishName)
+            return <ul className='station-name' key={index} id="Station-Name" >
+              {route[0].stop_list.includes(val[2]) && route[1].stop_list.includes(val[2]) ?
+                <div className="mix-circle" style={{ display: "block" }}>
+                </div> : <div className="mix-circle" style={{ display: "none" }}>
+                </div>}
+              <li
+                id="station_name"
+                style={{ color: routecolor }}
+              ><span
+                name={val[2]}
+                className="StaionsNames"
+                onClick={(e) => {
+                  // setFrom(changestation === "" ? val.englishName : changestation)
+                  setFrom(prefrence === "kannada" ? val[1] : val[0])
+                  setInputstyle({ display: "block" })
+                  setFromstationcode(val[2])
+                  if (from !== "") {
+                    setFrom(from)
+                    setTo(prefrence === "kannada" ? val[1] : val[0])
 
-                      setFromstationcode(fromstationcode)
-                      setTostationcode(val.stationCode)
-                    }
-                    // handleClick(e, index, val.stationCode);
+                    setFromstationcode(fromstationcode)
+                    setTostationcode(val[2])
+                  }
+                }}
+                id={val[2]} >
+                  {prefrence === "kannada" ? val[1] : val[0]}
+                </span></li>
+            </ul>
+          }))}
 
-                  }}
-                  id={val.stationCode} >
-                    {prefrence === "kannada" ? val.kannadaName : val.englishName}
-                  </span></li>
-              </ul>
-            }))}
-
-          </section> :
-          <section className='station-list-box' id="showinfo">
-
-            {(stationSortArray.map((val, index) => {
-              { route[0].stop_list.includes(val[2]) && route[1].stop_list.includes(val[2]) ? Alphabetcolor = "transparent" : route[0].stop_list.includes(val[2]) ? Alphabetcolor = "#A020F0" : Alphabetcolor = "#00FF00" }
-
-
-              return <ul className='station-name' key={index} id="Station-Name" >
-                {route[0].stop_list.includes(val[2]) && route[1].stop_list.includes(val[2]) ?
-                  <div className="mix-circle" style={{ display: "block" }}>
-                    {/* <div className="purple"></div> */}
-                    {/* <div className="green"></div> */}
-                  </div> : <div className="mix-circle" style={{ display: "none" }}>
-                    {/* <div className="purple"></div> */}
-                    {/* <div className="green"></div> */}
-                  </div>}
-                <li
-                  id="Station-Name"
-                  style={{ color: Alphabetcolor }}
-                ><span
-                  className='StaionsNames'
-                  onClick={(e) => {
-                    setFrom(prefrence === "kannada" ? val[1] : val[0])
-                    setInputstyle({ display: "block" })
-                    setFromstationcode(val[2])
-                    if (from !== "") {
-                      setFrom(from)
-                      setTo(prefrence === "kannada" ? val[1] : val[0])
-
-                      setFromstationcode(fromstationcode)
-                      setTostationcode(val[2])
-                    }
-                    // handleClick(e, index, val[2]);
-
-                  }}
-                  id={val[2]}>
-                    {prefrence === "kannada" ? val[1] : val[0]}
-                  </span></li>
-              </ul>
-            }))}
-
-          </section>
-        }
+        </section>
       </section>
     </>
   );
