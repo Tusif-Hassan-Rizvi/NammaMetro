@@ -221,7 +221,7 @@ function App() {
               <img src={blackarrow} alt="arrowpng" />
               <span>{to}</span> */}
             </div>
-            <span style={{ fontWeight: "bold", fontSize:"13px" }}>{prefrence === "kannada" ? "ಸಂಗ್ರಹಿತ ಮೌಲ್ಯವು ಟೋಕನ್ ದರಕ್ಕಿಂತ ಕಡಿಮೆಯಿರುತ್ತದೆ": "A stored value is less than the token fare"}</span>
+            <span style={{ fontWeight: "bold", fontSize: "13px" }}>{prefrence === "kannada" ? "ಸಂಗ್ರಹಿತ ಮೌಲ್ಯವು ಟೋಕನ್ ದರಕ್ಕಿಂತ ಕಡಿಮೆಯಿರುತ್ತದೆ" : "A stored value is less than the token fare"}</span>
             <div className="logo-box">
               <img src={logo} alt="image" draggable="false" className='metro-logo' />
             </div>
@@ -288,6 +288,11 @@ function App() {
                 onClick={(e) => {
                   // setFrom(changestation === "" ? val.englishName : changestation)
                   setSearchvalue("")
+                  let showinfo = document.getElementById("showinfo");
+                  for (let i = 0; i < showinfo.children.length; i++) {
+                    let child = showinfo.children[i];
+                    child.style.display = 'block';
+                  }
                   setFrom(prefrence === "kannada" ? val[1] : val[0])
                   setInputstyle({ display: "block" })
                   setFromstationcode(val[2])
