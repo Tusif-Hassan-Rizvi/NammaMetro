@@ -151,10 +151,6 @@
 }
 
 .previous-history {
-  width: 450px;
-  height: 10vh;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
-  border-radius: 10px;
   margin-left: 35vw;
 }
 
@@ -171,9 +167,19 @@
 }
 
 .previous-history-station {
+  width:450px;
+  height: 10vh;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.previous-history-station:active{
+border: 1px solid black;
 }
 
 .previous-history-station span {
@@ -237,9 +243,12 @@
     left: 6.2px;
   }
 
-  .previous-history{
+  .previous-history-station{
    width: 300px;
-   margin: 0 35px;
+  }
+
+  .previous-history{
+    margin: 0 35px;
   }
 
   .history-logo {

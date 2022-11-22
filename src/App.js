@@ -204,9 +204,15 @@ function App() {
         {/* History section  */}
         <section className='previous-history' style={{display:historystyle}}>
           <div className='previous-history-heading'>Previous search</div>
-          <div className='previous-history-station'><span>{previoushistory.fromstaionHistory}</span> <img className='history-logo' src={blackarrow} alt="arrowpng" /> <span>{previoushistory.tostationhistory}</span></div>
+          <div className='previous-history-station'
+          onClick={()=>{
+            setFrom(previoushistory.fromstaionHistory);
+            setTo(previoushistory.tostationhistory);
+          }}
+          ><span>{previoushistory.fromstaionHistory}</span> <img className='history-logo' src={blackarrow} alt="arrowpng" /> <span>{previoushistory.tostationhistory}</span></div>
         </section>
 
+{/* Ticket section  */}
         <section className='output-secton'>
           <div className="ticket-info-box" style={ticketstyle}>
             <div className='staion-name'>
@@ -233,7 +239,12 @@ function App() {
         <section id='inputbox-section'>
           {/* from station box  */}
           <input type="text" style={inputstyle} className='input-station' id="fromstation" value={from}
-            placeholder={prefrence === "kannada" ? "ಹೊರಡುವ ನಿಲ್ದಾಣವನ್ನು ನಮೂದಿಸಿ" : "From Station"} /><br />
+            placeholder={prefrence === "kannada" ? "ಹೊರಡುವ ನಿಲ್ದಾಣವನ್ನು ನಮೂದಿಸಿ" : "From Station"}
+            onClick={(e)=>{
+              setInputstyle({display:"none"}) 
+              setSearchvalue(from)
+            setFrom("")
+            } } /><br />
           {/* to station box */}
           <input type="text" style={inputtostyle} className='input-station' id='tostation' value={to}
             placeholder={prefrence === "kannada" ? "ತಲಪುವಾ ನಿಲ್ದಾಣವನ್ನು ನಮೂದಿಸಿ" : "To station"} />
@@ -274,6 +285,7 @@ function App() {
                 className="StaionsNames"
                 onClick={(e) => {
                   // setFrom(changestation === "" ? val.englishName : changestation)
+                  setSearchvalue("")
                   setFrom(prefrence === "kannada" ? val[1] : val[0])
                   setInputstyle({ display: "block" })
                   setFromstationcode(val[2])
