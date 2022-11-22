@@ -34,14 +34,14 @@ function App() {
   const [homedisplay, setHomedisplay] = useState("block");
   const [stationlistdisplay, setStationlistdisplay] = useState("none")
   const [searchvalue, setSearchvalue] = useState("")
-  const [languagedisplay, setLanguagedisplay]=useState("flex")
-  const [historystyle,setHistorystyle]=useState("block")
-  
+  const [languagedisplay, setLanguagedisplay] = useState("flex")
+  const [historystyle, setHistorystyle] = useState("block")
+
   const stationSortArray = [];
   let routecolor = "";
   let Alphabetcolor = "";
   let MixCircle = "block";
-  const previoushistory=JSON.parse(localStorage.getItem("SearchHistory"))===null?"":JSON.parse(localStorage.getItem("SearchHistory"))
+  const previoushistory = JSON.parse(localStorage.getItem("SearchHistory")) === null ? "" : JSON.parse(localStorage.getItem("SearchHistory"))
 
   useEffect(() => {
 
@@ -76,7 +76,6 @@ function App() {
     elem.style.color = 'gray';
     elem.style['pointer-events'] = 'none';
     elem.style.cursor = 'default';
-
   };
 
   localStorage.setItem("prefrence", language);
@@ -98,7 +97,7 @@ function App() {
       setVarshikfare(fare[fromstationcode][tostationcode]["cscFare"])
       setTokenfare(fare[fromstationcode][tostationcode]["tokenFare"])
       setTicketstyle({ "display": "block" })
-      localStorage.setItem("SearchHistory", JSON.stringify({"fromstaionHistory":from, "tostationhistory":to, "fromcodehistory":fromstationcode, 'tocodehistory':tostationcode}))
+      localStorage.setItem("SearchHistory", JSON.stringify({ "fromstaionHistory": from, "tostationhistory": to, "fromcodehistory": fromstationcode, 'tocodehistory': tostationcode }))
       setHistorystyle("none")
     }
   }
@@ -202,19 +201,19 @@ function App() {
         </div>
 
         {/* History section  */}
-        <section className='previous-history' style={{display:historystyle}}>
+        <section className='previous-history' style={{ display: historystyle }}>
           <div className='previous-history-heading'>Previous search</div>
           <div className='previous-history-station'
-          onClick={()=>{
-            setFrom(previoushistory.fromstaionHistory);
-            setTo(previoushistory.tostationhistory);
-            setFromstationcode(previoushistory.fromcodehistory);
-            setTostationcode(previoushistory.tocodehistory)
-          }}
+            onClick={() => {
+              setFrom(previoushistory.fromstaionHistory);
+              setTo(previoushistory.tostationhistory);
+              setFromstationcode(previoushistory.fromcodehistory);
+              setTostationcode(previoushistory.tocodehistory)
+            }}
           ><span>{previoushistory.fromstaionHistory}</span> <img className='history-logo' src={blackarrow} alt="arrowpng" /> <span>{previoushistory.tostationhistory}</span></div>
         </section>
 
-{/* Ticket section  */}
+        {/* Ticket section  */}
         <section className='output-secton'>
           <div className="ticket-info-box" style={ticketstyle}>
             <div className='staion-name'>
@@ -222,7 +221,7 @@ function App() {
               <img src={blackarrow} alt="arrowpng" />
               <span>{to}</span> */}
             </div>
-            <span style={{fontWeight:"bold"}}>Stored value less than token fare</span>
+            <span style={{ fontWeight: "bold", fontSize:"13px" }}>{prefrence === "kannada" ? "ಸಂಗ್ರಹಿತ ಮೌಲ್ಯವು ಟೋಕನ್ ದರಕ್ಕಿಂತ ಕಡಿಮೆಯಿರುತ್ತದೆ": "A stored value is less than the token fare"}</span>
             <div className="logo-box">
               <img src={logo} alt="image" draggable="false" className='metro-logo' />
             </div>
@@ -243,11 +242,11 @@ function App() {
           {/* from station box  */}
           <input type="text" style={inputstyle} className='input-station' id="fromstation" value={from}
             placeholder={prefrence === "kannada" ? "ಹೊರಡುವ ನಿಲ್ದಾಣವನ್ನು ನಮೂದಿಸಿ" : "From Station"}
-            onClick={(e)=>{
-              setInputstyle({display:"none"}) 
+            onClick={(e) => {
+              setInputstyle({ display: "none" })
               setSearchvalue(from)
-            setFrom("")
-            } } /><br />
+              setFrom("")
+            }} /><br />
           {/* to station box */}
           <input type="text" style={inputtostyle} className='input-station' id='tostation' value={to}
             placeholder={prefrence === "kannada" ? "ತಲಪುವಾ ನಿಲ್ದಾಣವನ್ನು ನಮೂದಿಸಿ" : "To station"} />
@@ -299,6 +298,7 @@ function App() {
                     setFromstationcode(fromstationcode)
                     setTostationcode(val[2])
                   }
+                  // handleClick(e, index, val[2])
                 }}
                 id={val[2]} >
                   {prefrence === "kannada" ? val[1] : val[0]}
