@@ -222,6 +222,7 @@ function App() {
               <img src={blackarrow} alt="arrowpng" />
               <span>{to}</span> */}
             </div>
+            <span style={{fontWeight:"bold"}}>Stored value less than token fare</span>
             <div className="logo-box">
               <img src={logo} alt="image" draggable="false" className='metro-logo' />
             </div>
