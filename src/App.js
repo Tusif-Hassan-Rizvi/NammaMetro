@@ -98,7 +98,7 @@ function App() {
       setVarshikfare(fare[fromstationcode][tostationcode]["cscFare"])
       setTokenfare(fare[fromstationcode][tostationcode]["tokenFare"])
       setTicketstyle({ "display": "block" })
-      localStorage.setItem("SearchHistory", JSON.stringify({"fromstaionHistory":from, "tostationhistory":to}))
+      localStorage.setItem("SearchHistory", JSON.stringify({"fromstaionHistory":from, "tostationhistory":to, "fromcodehistory":fromstationcode, 'tocodehistory':tostationcode}))
       setHistorystyle("none")
     }
   }
@@ -208,6 +208,8 @@ function App() {
           onClick={()=>{
             setFrom(previoushistory.fromstaionHistory);
             setTo(previoushistory.tostationhistory);
+            setFromstationcode(previoushistory.fromcodehistory);
+            setTostationcode(previoushistory.tocodehistory)
           }}
           ><span>{previoushistory.fromstaionHistory}</span> <img className='history-logo' src={blackarrow} alt="arrowpng" /> <span>{previoushistory.tostationhistory}</span></div>
         </section>
