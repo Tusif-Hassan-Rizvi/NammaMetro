@@ -37,7 +37,10 @@ function App() {
   const [languagedisplay, setLanguagedisplay] = useState("flex")
   const [historystyle, setHistorystyle] = useState("block")
 
+  const [none, setNone]=useState("block")
+
   const stationSortArray = [];
+
   let routecolor = "";
   let Alphabetcolor = "";
   let MixCircle = "block";
@@ -65,17 +68,16 @@ function App() {
   for (let key in station) {
     stationSortArray.push([station[key]["englishName"], station[key]["kannadaName"], station[key]["stationCode"]])
   }
-
   if (sortoperation === 'OrderByAlphabet') {
-
     stationSortArray.sort();
   }
 
-  const handleClick = (event, index, id) => {
-    let elem = document.getElementById(id);
-    elem.style.color = 'gray';
-    elem.style['pointer-events'] = 'none';
-    elem.style.cursor = 'default';
+  
+  const handleClick = (event, index, val) => {
+
+    event.target.style.color = 'gray';
+    event.target.style['pointer-events'] = 'none';
+    event.target.style.cursor = 'default';
   };
 
   localStorage.setItem("prefrence", language);
@@ -153,6 +155,9 @@ function App() {
     setFrom("")
     setTicketstyle({ "display": "none" })
   }
+
+
+  // }
   return (
 
     <>
@@ -274,18 +279,49 @@ function App() {
           {(stationSortArray.map((val, index) => {
             { route[0].stop_list.includes(val[2]) && route[1].stop_list.includes(val[2]) ? routecolor = "transparent" : route[0].stop_list.includes(val[2]) ? routecolor = "#A020F0" : routecolor = "#00FF00" }
 
-            return <ul className='station-name' key={index} id="Station-Name" >
+            return <ul className='station-name' key={index} id="Station-Name" 
+            
+            >
               {route[0].stop_list.includes(val[2]) && route[1].stop_list.includes(val[2]) ?
                 <div className="mix-circle" style={{ display: "block" }}>
                 </div> : <div className="mix-circle" style={{ display: "none" }}>
                 </div>}
               <li
                 id="station_name"
-                style={{ color: routecolor }}
-              ><span
+                style={{ color: routecolor}}
+              >{fromstationcode===val[2]?<span
+              style={{color:"gray", pointerEvents:"none", cursor:'default'}}
                 name={val[2]}
                 className="StaionsNames"
                 onClick={(e) => {
+                  setNone("none")
+                  // setFrom(changestation === "" ? val.englishName : changestation)
+                  setSearchvalue("")
+                  let showinfo = document.getElementById("showinfo");
+                  for (let i = 0; i < showinfo.children.length; i++) {
+                    let child = showinfo.children[i];
+                    child.style.display = 'block';
+                  }
+                  setFrom(prefrence === "kannada" ? val[1] : val[0])
+                  setInputstyle({ display: "block" })
+                  setFromstationcode(val[2])
+                  if (from !== "") {
+                    stationSortArray.splice(index,1)
+                    setFrom(from)
+                    setTo(prefrence === "kannada" ? val[1] : val[0])
+
+                    setFromstationcode(fromstationcode)
+                    setTostationcode(val[2])
+                  }
+                  // handleClick(e, index, val )
+                }}
+                id={val[2]} >
+                  {prefrence === "kannada" ? val[1] : val[0]}
+                </span>:<span
+                name={val[2]}
+                className="StaionsNames"
+                onClick={(e) => {
+                  setNone("none")
                   // setFrom(changestation === "" ? val.englishName : changestation)
                   setSearchvalue("")
                   let showinfo = document.getElementById("showinfo");
@@ -303,11 +339,11 @@ function App() {
                     setFromstationcode(fromstationcode)
                     setTostationcode(val[2])
                   }
-                  // handleClick(e, index, val[2])
+                  // handleClick(e, index, val )
                 }}
                 id={val[2]} >
                   {prefrence === "kannada" ? val[1] : val[0]}
-                </span></li>
+                </span>}</li>
             </ul>
           }))}
 
