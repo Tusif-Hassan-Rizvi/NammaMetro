@@ -117,6 +117,7 @@ function App() {
     setLanguagedisplay("none")
     setStationlistdisplay("block")
     setInputstyle({ display: "none" })
+    setFromstationcode("")
   }
   function HandleOnChangeTo(e) {
     setTo("")
@@ -313,11 +314,11 @@ function App() {
                     setFromstationcode(fromstationcode)
                     setTostationcode(val[2])
                   }
-                  // handleClick(e, index, val )
                 }}
                 id={val[2]} >
                   {prefrence === "kannada" ? val[1] : val[0]}
                 </span>:<span
+                 style={{color:"black", pointerEvents:"auto", cursor:'pointer'}}
                 name={val[2]}
                 className="StaionsNames"
                 onClick={(e) => {
@@ -339,7 +340,6 @@ function App() {
                     setFromstationcode(fromstationcode)
                     setTostationcode(val[2])
                   }
-                  // handleClick(e, index, val )
                 }}
                 id={val[2]} >
                   {prefrence === "kannada" ? val[1] : val[0]}
