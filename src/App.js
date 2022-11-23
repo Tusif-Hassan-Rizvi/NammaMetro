@@ -15,7 +15,6 @@ import { json } from 'react-router-dom';
 function App() {
   const [tostationcode, setTostationcode] = useState("");
   const [fromstationcode, setFromstationcode] = useState("");
-  const [changestation, setChangestation] = useState("")
   const station = Stations.stations;
   const route = Routes.route_info;
   const [from, setFrom] = useState("");
@@ -23,27 +22,20 @@ function App() {
   const [inputstyle, setInputstyle] = useState({ display: "none" })
   const [inputtostyle, setInputtostyle] = useState({ display: "none" })
   const [sortoperation, setSortoperation] = useState("OrderByRoute")
-  const [targetvalue, setTargetvalue] = useState("");
-  const [clickidroute, setClickidroute] = useState("")
-  const [clickidalpha, setClickidalpha] = useState("")
   const [language, setLanguage] = useState(localStorage.getItem('prefrence'));
   const [varshikfare, setVarshikfare] = useState(0);
   const [tokenfare, setTokenfare] = useState(0);
   const [ticketstyle, setTicketstyle] = useState({ "display": "none" });
-  const [frominputstate, setFrominputstate] = useState("")
   const [homedisplay, setHomedisplay] = useState("block");
   const [stationlistdisplay, setStationlistdisplay] = useState("none")
   const [searchvalue, setSearchvalue] = useState("")
   const [languagedisplay, setLanguagedisplay] = useState("flex")
   const [historystyle, setHistorystyle] = useState("block")
 
-  const [none, setNone]=useState("block")
 
   const stationSortArray = [];
 
   let routecolor = "";
-  let Alphabetcolor = "";
-  let MixCircle = "block";
   const previoushistory = JSON.parse(localStorage.getItem("SearchHistory")) === null ? "" : JSON.parse(localStorage.getItem("SearchHistory"))
 
   useEffect(() => {
@@ -71,14 +63,6 @@ function App() {
   if (sortoperation === 'OrderByAlphabet') {
     stationSortArray.sort();
   }
-
-  
-  const handleClick = (event, index, val) => {
-
-    event.target.style.color = 'gray';
-    event.target.style['pointer-events'] = 'none';
-    event.target.style.cursor = 'default';
-  };
 
   localStorage.setItem("prefrence", language);
   const prefrence = localStorage.getItem('prefrence');
@@ -157,8 +141,6 @@ function App() {
     setTicketstyle({ "display": "none" })
   }
 
-
-  // }
   return (
 
     <>
@@ -280,8 +262,8 @@ function App() {
           {(stationSortArray.map((val, index) => {
             { route[0].stop_list.includes(val[2]) && route[1].stop_list.includes(val[2]) ? routecolor = "transparent" : route[0].stop_list.includes(val[2]) ? routecolor = "#A020F0" : routecolor = "#00FF00" }
 
-            return <ul className='station-name' key={index} id="Station-Name" 
-            
+            return <ul className='station-name' key={index} id="Station-Name"
+
             >
               {route[0].stop_list.includes(val[2]) && route[1].stop_list.includes(val[2]) ?
                 <div className="mix-circle" style={{ display: "block" }}>
@@ -289,14 +271,12 @@ function App() {
                 </div>}
               <li
                 id="station_name"
-                style={{ color: routecolor}}
-              >{fromstationcode===val[2]?<span
-              style={{color:"gray", pointerEvents:"none", cursor:'default'}}
+                style={{ color: routecolor }}
+              ><span
+                style={fromstationcode === val[2] ? { color: "gray", pointerEvents: "none", cursor: 'default' } : { color: "black", pointerEvents: "auto", cursor: 'pointer'}}
                 name={val[2]}
                 className="StaionsNames"
                 onClick={(e) => {
-                  setNone("none")
-                  // setFrom(changestation === "" ? val.englishName : changestation)
                   setSearchvalue("")
                   let showinfo = document.getElementById("showinfo");
                   for (let i = 0; i < showinfo.children.length; i++) {
@@ -307,7 +287,7 @@ function App() {
                   setInputstyle({ display: "block" })
                   setFromstationcode(val[2])
                   if (from !== "") {
-                    stationSortArray.splice(index,1)
+                    stationSortArray.splice(index, 1)
                     setFrom(from)
                     setTo(prefrence === "kannada" ? val[1] : val[0])
 
@@ -317,33 +297,7 @@ function App() {
                 }}
                 id={val[2]} >
                   {prefrence === "kannada" ? val[1] : val[0]}
-                </span>:<span
-                 style={{color:"black", pointerEvents:"auto", cursor:'pointer'}}
-                name={val[2]}
-                className="StaionsNames"
-                onClick={(e) => {
-                  setNone("none")
-                  // setFrom(changestation === "" ? val.englishName : changestation)
-                  setSearchvalue("")
-                  let showinfo = document.getElementById("showinfo");
-                  for (let i = 0; i < showinfo.children.length; i++) {
-                    let child = showinfo.children[i];
-                    child.style.display = 'block';
-                  }
-                  setFrom(prefrence === "kannada" ? val[1] : val[0])
-                  setInputstyle({ display: "block" })
-                  setFromstationcode(val[2])
-                  if (from !== "") {
-                    setFrom(from)
-                    setTo(prefrence === "kannada" ? val[1] : val[0])
-
-                    setFromstationcode(fromstationcode)
-                    setTostationcode(val[2])
-                  }
-                }}
-                id={val[2]} >
-                  {prefrence === "kannada" ? val[1] : val[0]}
-                </span>}</li>
+                </span></li>
             </ul>
           }))}
 
